@@ -1,0 +1,61 @@
+{
+    "total": 8,
+    "result": [
+        {
+            "category": null,
+            "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            "id": "RDCtS4GjQpmwByA3ytBs2A",
+            "url": "https://api.chucknorris.io/jokes/RDCtS4GjQpmwByA3ytBs2A",
+            "value": "I just downloaded the new \u0022Roundhouse Kick\u0022 app for my iPhone and now my screen is cracked and the phone does not work. Damn you, Chuck Norris."
+        },
+        {
+            "category": null,
+            "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            "id": "ulsiraupTqykbsK70ifGxw",
+            "url": "https://api.chucknorris.io/jokes/ulsiraupTqykbsK70ifGxw",
+            "value": "Steve Jobs died because Chuck Norris was pissed that the iPhone 4S wasn\u0027t the iPhone 5"
+        },
+        {
+            "category": null,
+            "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            "id": "hwO3REACRASgG1nClLfR_w",
+            "url": "https://api.chucknorris.io/jokes/hwO3REACRASgG1nClLfR_w",
+            "value": "Chuck Norris\u0027 cell phone of choice...........the Blackberry IPhone"
+        },
+        {
+            "category": null,
+            "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            "id": "RX3oS-gFS4-FkZpZQMsp6g",
+            "url": "https://api.chucknorris.io/jokes/RX3oS-gFS4-FkZpZQMsp6g",
+            "value": "Blackouts are caused by Chuck Norris charging his iPhone."
+        },
+        {
+            "category": null,
+            "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            "id": "fKuYuPBFQZaOCFinwassFQ",
+            "url": "https://api.chucknorris.io/jokes/fKuYuPBFQZaOCFinwassFQ",
+            "value": "Chuck Norris has a roundhouse-kick app for his iPhone \u0026#8734;.0"
+        },
+        {
+            "category": null,
+            "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            "id": "qUiNkzrCRwmK8EIbBzt_Ag",
+            "url": "https://api.chucknorris.io/jokes/qUiNkzrCRwmK8EIbBzt_Ag",
+            "value": "Chuck Norris put the I in IPhone with a real human eye"
+        },
+        {
+            "category": null,
+            "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            "id": "DHv_qJw-RXWQCzr2BXruZw",
+            "url": "https://api.chucknorris.io/jokes/DHv_qJw-RXWQCzr2BXruZw",
+            "value": "Chuck Norris had an iPad Air when the iPhone was first released."
+        },
+        {
+            "category": null,
+            "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            "id": "9FqrXimEQ2-XoPbAx-UcBA",
+            "url": "https://api.chucknorris.io/jokes/9FqrXimEQ2-XoPbAx-UcBA",
+            "value": "Adobe Flash runs on Chuck Norris\u0027 iPhone."
+        }
+    ]
+}
