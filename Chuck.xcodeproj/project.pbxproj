@@ -20,6 +20,7 @@
 		DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57A820B4D82400F52C9E /* SearchResponse.swift */; };
 		DD1A57AB20B4D87F00F52C9E /* searchEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A57AA20B4D87E00F52C9E /* searchEmpty.json */; };
 		DD1A57AE20B4D8DA00F52C9E /* TestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57AD20B4D8DA00F52C9E /* TestBundle.swift */; };
+		DD1A57B020B4DD4C00F52C9E /* DecodingErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57AF20B4DD4C00F52C9E /* DecodingErrorExtension.swift */; };
 		DD2825E320B4BF3B00627F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825E220B4BF3B00627F05 /* AppDelegate.swift */; };
 		DD2825E520B4BF3B00627F05 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825E420B4BF3B00627F05 /* AppFlowController.swift */; };
 		DD2825EA20B4BF3C00627F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2825E920B4BF3C00627F05 /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 		DD1A57A820B4D82400F52C9E /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		DD1A57AA20B4D87E00F52C9E /* searchEmpty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchEmpty.json; sourceTree = "<group>"; };
 		DD1A57AD20B4D8DA00F52C9E /* TestBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBundle.swift; sourceTree = "<group>"; };
+		DD1A57AF20B4DD4C00F52C9E /* DecodingErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingErrorExtension.swift; sourceTree = "<group>"; };
 		DD2825DF20B4BF3B00627F05 /* Chuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2825E220B4BF3B00627F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD2825E420B4BF3B00627F05 /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1A57AD20B4D8DA00F52C9E /* TestBundle.swift */,
+				DD1A57AF20B4DD4C00F52C9E /* DecodingErrorExtension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1A579220B4D74C00F52C9E /* ChuckCoreTests.swift in Sources */,
+				DD1A57B020B4DD4C00F52C9E /* DecodingErrorExtension.swift in Sources */,
 				DD1A57AE20B4D8DA00F52C9E /* TestBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
