@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD1A578B20B4D74C00F52C9E /* ChuckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; };
-		DD1A579220B4D74C00F52C9E /* ChuckCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A579120B4D74C00F52C9E /* ChuckCoreTests.swift */; };
+		DD1A579220B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A579120B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift */; };
 		DD1A579420B4D74C00F52C9E /* ChuckCore.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1A578420B4D74C00F52C9E /* ChuckCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1A579720B4D74C00F52C9E /* ChuckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; };
 		DD1A579820B4D74C00F52C9E /* ChuckCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -92,7 +92,7 @@
 		DD1A578420B4D74C00F52C9E /* ChuckCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChuckCore.h; sourceTree = "<group>"; };
 		DD1A578520B4D74C00F52C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1A578A20B4D74C00F52C9E /* ChuckCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChuckCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1A579120B4D74C00F52C9E /* ChuckCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreTests.swift; sourceTree = "<group>"; };
+		DD1A579120B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreAPIResponseParsingTests.swift; sourceTree = "<group>"; };
 		DD1A579320B4D74C00F52C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1A57A520B4D7AB00F52C9E /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		DD1A57A820B4D82400F52C9E /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			children = (
 				DD1A57AC20B4D8BE00F52C9E /* Util */,
 				DD1A577420B4D5B800F52C9E /* Resources */,
-				DD1A579120B4D74C00F52C9E /* ChuckCoreTests.swift */,
+				DD1A579120B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift */,
 				DD1A579320B4D74C00F52C9E /* Info.plist */,
 			);
 			path = ChuckCoreTests;
@@ -529,7 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1A579220B4D74C00F52C9E /* ChuckCoreTests.swift in Sources */,
+				DD1A579220B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift in Sources */,
 				DD1A57B020B4DD4C00F52C9E /* DecodingErrorExtension.swift in Sources */,
 				DD1A57AE20B4D8DA00F52C9E /* TestBundle.swift in Sources */,
 			);

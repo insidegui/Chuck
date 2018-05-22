@@ -1,5 +1,5 @@
 //
-//  ChuckCoreTests.swift
+//  ChuckCoreAPIResponseParsingTests.swift
 //  ChuckCoreTests
 //
 //  Created by Guilherme Rambo on 22/05/18.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import ChuckCore
 
-class ChuckCoreTests: XCTestCase {
+class ChuckCoreAPIResponseParsingTests: XCTestCase {
 
     /// Make sure all required resources are available for the tests, this test will fail if any
     /// of the required resources is not available in the test bundle
