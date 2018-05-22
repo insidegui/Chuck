@@ -54,5 +54,19 @@ class ChuckCoreTests: XCTestCase {
         XCTAssert(categories.first == "explicit")
         XCTAssert(categories.last == "fashion")
     }
+
+    func testRandomResponseParsing() throws {
+        let data = try Bundle.testBundle.fetch(resource: .random)
+
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let response = try decoder.decode(Joke.self, from: data)
+
+        XCTAssertNil(response.category)
+        XCTAssert(response.id == "2cZa3wC8Ts-UI4TiFaFQVw")
+        XCTAssert(response.value == "Chuck Norris is Mysterion.")
+        XCTAssert(response.url.absoluteString == "https://api.chucknorris.io/jokes/2cZa3wC8Ts-UI4TiFaFQVw")
+        XCTAssert(response.iconUrl.absoluteString == "https://assets.chucknorris.host/img/avatar/chuck-norris.png")
+    }
     
 }
