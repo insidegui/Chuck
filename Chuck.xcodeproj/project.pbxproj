@@ -16,6 +16,9 @@
 		DD1A57A120B4D78500F52C9E /* random_with_category.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577720B4D71E00F52C9E /* random_with_category.json */; };
 		DD1A57A220B4D78500F52C9E /* random.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577620B4D71E00F52C9E /* random.json */; };
 		DD1A57A320B4D78500F52C9E /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577820B4D71E00F52C9E /* search.json */; };
+		DD1A57A620B4D7AB00F52C9E /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57A520B4D7AB00F52C9E /* Joke.swift */; };
+		DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57A820B4D82400F52C9E /* SearchResponse.swift */; };
+		DD1A57AB20B4D87F00F52C9E /* search_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A57AA20B4D87E00F52C9E /* search_empty.json */; };
 		DD2825E320B4BF3B00627F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825E220B4BF3B00627F05 /* AppDelegate.swift */; };
 		DD2825E520B4BF3B00627F05 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825E420B4BF3B00627F05 /* AppFlowController.swift */; };
 		DD2825EA20B4BF3C00627F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2825E920B4BF3C00627F05 /* Assets.xcassets */; };
@@ -89,6 +92,9 @@
 		DD1A578A20B4D74C00F52C9E /* ChuckCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChuckCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1A579120B4D74C00F52C9E /* ChuckCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreTests.swift; sourceTree = "<group>"; };
 		DD1A579320B4D74C00F52C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD1A57A520B4D7AB00F52C9E /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
+		DD1A57A820B4D82400F52C9E /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		DD1A57AA20B4D87E00F52C9E /* search_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_empty.json; sourceTree = "<group>"; };
 		DD2825DF20B4BF3B00627F05 /* Chuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2825E220B4BF3B00627F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD2825E420B4BF3B00627F05 /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				DD1A577720B4D71E00F52C9E /* random_with_category.json */,
 				DD1A577620B4D71E00F52C9E /* random.json */,
 				DD1A577820B4D71E00F52C9E /* search.json */,
+				DD1A57AA20B4D87E00F52C9E /* search_empty.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 			children = (
 				DD1A578420B4D74C00F52C9E /* ChuckCore.h */,
 				DD1A578520B4D74C00F52C9E /* Info.plist */,
+				DD1A57A420B4D7A100F52C9E /* Models */,
 			);
 			path = ChuckCore;
 			sourceTree = "<group>";
@@ -174,6 +182,23 @@
 				DD1A579320B4D74C00F52C9E /* Info.plist */,
 			);
 			path = ChuckCoreTests;
+			sourceTree = "<group>";
+		};
+		DD1A57A420B4D7A100F52C9E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A57A720B4D81000F52C9E /* API */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD1A57A720B4D81000F52C9E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A57A520B4D7AB00F52C9E /* Joke.swift */,
+				DD1A57A820B4D82400F52C9E /* SearchResponse.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		DD2825D620B4BF3B00627F05 = {
@@ -390,6 +415,7 @@
 				TargetAttributes = {
 					DD1A578120B4D74C00F52C9E = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 					};
 					DD1A578920B4D74C00F52C9E = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -446,6 +472,7 @@
 				DD1A57A320B4D78500F52C9E /* search.json in Resources */,
 				DD1A57A120B4D78500F52C9E /* random_with_category.json in Resources */,
 				DD1A57A020B4D78500F52C9E /* categories.json in Resources */,
+				DD1A57AB20B4D87F00F52C9E /* search_empty.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +506,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */,
+				DD1A57A620B4D7AB00F52C9E /* Joke.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +591,7 @@
 		DD1A579A20B4D74C00F52C9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -580,6 +610,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.ChuckCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -590,6 +621,7 @@
 		DD1A579B20B4D74C00F52C9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -772,6 +804,7 @@
 		DD28260820B4BF3C00627F05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7439RJLG;
@@ -790,6 +823,7 @@
 		DD28260920B4BF3C00627F05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7439RJLG;
