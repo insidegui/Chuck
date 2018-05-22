@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD1A577920B4D71E00F52C9E /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577520B4D71E00F52C9E /* categories.json */; };
-		DD1A577A20B4D71E00F52C9E /* random.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577620B4D71E00F52C9E /* random.json */; };
-		DD1A577B20B4D71E00F52C9E /* random_with_category.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577720B4D71E00F52C9E /* random_with_category.json */; };
-		DD1A577C20B4D71E00F52C9E /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577820B4D71E00F52C9E /* search.json */; };
+		DD1A578B20B4D74C00F52C9E /* ChuckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; };
+		DD1A579220B4D74C00F52C9E /* ChuckCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A579120B4D74C00F52C9E /* ChuckCoreTests.swift */; };
+		DD1A579420B4D74C00F52C9E /* ChuckCore.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1A578420B4D74C00F52C9E /* ChuckCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD1A579720B4D74C00F52C9E /* ChuckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; };
+		DD1A579820B4D74C00F52C9E /* ChuckCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD1A57A020B4D78500F52C9E /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577520B4D71E00F52C9E /* categories.json */; };
+		DD1A57A120B4D78500F52C9E /* random_with_category.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577720B4D71E00F52C9E /* random_with_category.json */; };
+		DD1A57A220B4D78500F52C9E /* random.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577620B4D71E00F52C9E /* random.json */; };
+		DD1A57A320B4D78500F52C9E /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577820B4D71E00F52C9E /* search.json */; };
 		DD2825E320B4BF3B00627F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825E220B4BF3B00627F05 /* AppDelegate.swift */; };
 		DD2825E520B4BF3B00627F05 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825E420B4BF3B00627F05 /* AppFlowController.swift */; };
 		DD2825EA20B4BF3C00627F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2825E920B4BF3C00627F05 /* Assets.xcassets */; };
@@ -22,6 +27,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DD1A578C20B4D74C00F52C9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD2825D720B4BF3B00627F05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD1A578120B4D74C00F52C9E;
+			remoteInfo = ChuckCore;
+		};
+		DD1A578E20B4D74C00F52C9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD2825D720B4BF3B00627F05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD2825DE20B4BF3B00627F05;
+			remoteInfo = Chuck;
+		};
+		DD1A579520B4D74C00F52C9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD2825D720B4BF3B00627F05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD1A578120B4D74C00F52C9E;
+			remoteInfo = ChuckCore;
+		};
 		DD2825F420B4BF3C00627F05 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DD2825D720B4BF3B00627F05 /* Project object */;
@@ -38,11 +64,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DD1A579C20B4D74C00F52C9E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DD1A579820B4D74C00F52C9E /* ChuckCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		DD1A577520B4D71E00F52C9E /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		DD1A577620B4D71E00F52C9E /* random.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = random.json; sourceTree = "<group>"; };
 		DD1A577720B4D71E00F52C9E /* random_with_category.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = random_with_category.json; sourceTree = "<group>"; };
 		DD1A577820B4D71E00F52C9E /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
+		DD1A578220B4D74C00F52C9E /* ChuckCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChuckCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1A578420B4D74C00F52C9E /* ChuckCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChuckCore.h; sourceTree = "<group>"; };
+		DD1A578520B4D74C00F52C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD1A578A20B4D74C00F52C9E /* ChuckCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChuckCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1A579120B4D74C00F52C9E /* ChuckCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreTests.swift; sourceTree = "<group>"; };
+		DD1A579320B4D74C00F52C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD2825DF20B4BF3B00627F05 /* Chuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2825E220B4BF3B00627F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD2825E420B4BF3B00627F05 /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
@@ -60,10 +106,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DD1A577E20B4D74C00F52C9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1A578720B4D74C00F52C9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1A578B20B4D74C00F52C9E /* ChuckCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD2825DC20B4BF3B00627F05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1A579720B4D74C00F52C9E /* ChuckCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,12 +157,33 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		DD1A578320B4D74C00F52C9E /* ChuckCore */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A578420B4D74C00F52C9E /* ChuckCore.h */,
+				DD1A578520B4D74C00F52C9E /* Info.plist */,
+			);
+			path = ChuckCore;
+			sourceTree = "<group>";
+		};
+		DD1A579020B4D74C00F52C9E /* ChuckCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A577420B4D5B800F52C9E /* Resources */,
+				DD1A579120B4D74C00F52C9E /* ChuckCoreTests.swift */,
+				DD1A579320B4D74C00F52C9E /* Info.plist */,
+			);
+			path = ChuckCoreTests;
+			sourceTree = "<group>";
+		};
 		DD2825D620B4BF3B00627F05 = {
 			isa = PBXGroup;
 			children = (
 				DD2825E120B4BF3B00627F05 /* Chuck */,
 				DD2825F620B4BF3C00627F05 /* ChuckTests */,
 				DD28260120B4BF3C00627F05 /* ChuckUITests */,
+				DD1A578320B4D74C00F52C9E /* ChuckCore */,
+				DD1A579020B4D74C00F52C9E /* ChuckCoreTests */,
 				DD2825E020B4BF3B00627F05 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +194,8 @@
 				DD2825DF20B4BF3B00627F05 /* Chuck.app */,
 				DD2825F320B4BF3C00627F05 /* ChuckTests.xctest */,
 				DD2825FE20B4BF3C00627F05 /* ChuckUITests.xctest */,
+				DD1A578220B4D74C00F52C9E /* ChuckCore.framework */,
+				DD1A578A20B4D74C00F52C9E /* ChuckCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +214,6 @@
 		DD2825F620B4BF3C00627F05 /* ChuckTests */ = {
 			isa = PBXGroup;
 			children = (
-				DD1A577420B4D5B800F52C9E /* Resources */,
 				DD2825F720B4BF3C00627F05 /* ChuckTests.swift */,
 				DD2825F920B4BF3C00627F05 /* Info.plist */,
 			);
@@ -190,7 +274,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		DD1A577F20B4D74C00F52C9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1A579420B4D74C00F52C9E /* ChuckCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		DD1A578120B4D74C00F52C9E /* ChuckCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD1A579920B4D74C00F52C9E /* Build configuration list for PBXNativeTarget "ChuckCore" */;
+			buildPhases = (
+				DD1A577D20B4D74C00F52C9E /* Sources */,
+				DD1A577E20B4D74C00F52C9E /* Frameworks */,
+				DD1A577F20B4D74C00F52C9E /* Headers */,
+				DD1A578020B4D74C00F52C9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChuckCore;
+			productName = ChuckCore;
+			productReference = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DD1A578920B4D74C00F52C9E /* ChuckCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD1A579D20B4D74C00F52C9E /* Build configuration list for PBXNativeTarget "ChuckCoreTests" */;
+			buildPhases = (
+				DD1A578620B4D74C00F52C9E /* Sources */,
+				DD1A578720B4D74C00F52C9E /* Frameworks */,
+				DD1A578820B4D74C00F52C9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD1A578D20B4D74C00F52C9E /* PBXTargetDependency */,
+				DD1A578F20B4D74C00F52C9E /* PBXTargetDependency */,
+			);
+			name = ChuckCoreTests;
+			productName = ChuckCoreTests;
+			productReference = DD1A578A20B4D74C00F52C9E /* ChuckCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DD2825DE20B4BF3B00627F05 /* Chuck */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD28260720B4BF3C00627F05 /* Build configuration list for PBXNativeTarget "Chuck" */;
@@ -198,10 +330,12 @@
 				DD2825DB20B4BF3B00627F05 /* Sources */,
 				DD2825DC20B4BF3B00627F05 /* Frameworks */,
 				DD2825DD20B4BF3B00627F05 /* Resources */,
+				DD1A579C20B4D74C00F52C9E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DD1A579620B4D74C00F52C9E /* PBXTargetDependency */,
 			);
 			name = Chuck;
 			productName = Chuck;
@@ -254,6 +388,13 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Guilherme Rambo";
 				TargetAttributes = {
+					DD1A578120B4D74C00F52C9E = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+					DD1A578920B4D74C00F52C9E = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = DD2825DE20B4BF3B00627F05;
+					};
 					DD2825DE20B4BF3B00627F05 = {
 						CreatedOnToolsVersion = 9.3.1;
 					};
@@ -283,11 +424,31 @@
 				DD2825DE20B4BF3B00627F05 /* Chuck */,
 				DD2825F220B4BF3C00627F05 /* ChuckTests */,
 				DD2825FD20B4BF3C00627F05 /* ChuckUITests */,
+				DD1A578120B4D74C00F52C9E /* ChuckCore */,
+				DD1A578920B4D74C00F52C9E /* ChuckCoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DD1A578020B4D74C00F52C9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1A578820B4D74C00F52C9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1A57A220B4D78500F52C9E /* random.json in Resources */,
+				DD1A57A320B4D78500F52C9E /* search.json in Resources */,
+				DD1A57A120B4D78500F52C9E /* random_with_category.json in Resources */,
+				DD1A57A020B4D78500F52C9E /* categories.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD2825DD20B4BF3B00627F05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,10 +462,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1A577A20B4D71E00F52C9E /* random.json in Resources */,
-				DD1A577C20B4D71E00F52C9E /* search.json in Resources */,
-				DD1A577920B4D71E00F52C9E /* categories.json in Resources */,
-				DD1A577B20B4D71E00F52C9E /* random_with_category.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +475,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DD1A577D20B4D74C00F52C9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1A578620B4D74C00F52C9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1A579220B4D74C00F52C9E /* ChuckCoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD2825DB20B4BF3B00627F05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -348,6 +520,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DD1A578D20B4D74C00F52C9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD1A578120B4D74C00F52C9E /* ChuckCore */;
+			targetProxy = DD1A578C20B4D74C00F52C9E /* PBXContainerItemProxy */;
+		};
+		DD1A578F20B4D74C00F52C9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD2825DE20B4BF3B00627F05 /* Chuck */;
+			targetProxy = DD1A578E20B4D74C00F52C9E /* PBXContainerItemProxy */;
+		};
+		DD1A579620B4D74C00F52C9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD1A578120B4D74C00F52C9E /* ChuckCore */;
+			targetProxy = DD1A579520B4D74C00F52C9E /* PBXContainerItemProxy */;
+		};
 		DD2825F520B4BF3C00627F05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DD2825DE20B4BF3B00627F05 /* Chuck */;
@@ -372,6 +559,102 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DD1A579A20B4D74C00F52C9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ChuckCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.ChuckCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DD1A579B20B4D74C00F52C9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ChuckCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.ChuckCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DD1A579E20B4D74C00F52C9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				INFOPLIST_FILE = ChuckCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.ChuckCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chuck.app/Chuck";
+			};
+			name = Debug;
+		};
+		DD1A579F20B4D74C00F52C9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				INFOPLIST_FILE = ChuckCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.ChuckCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chuck.app/Chuck";
+			};
+			name = Release;
+		};
 		DD28260520B4BF3C00627F05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -607,6 +890,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DD1A579920B4D74C00F52C9E /* Build configuration list for PBXNativeTarget "ChuckCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD1A579A20B4D74C00F52C9E /* Debug */,
+				DD1A579B20B4D74C00F52C9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD1A579D20B4D74C00F52C9E /* Build configuration list for PBXNativeTarget "ChuckCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD1A579E20B4D74C00F52C9E /* Debug */,
+				DD1A579F20B4D74C00F52C9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DD2825DA20B4BF3B00627F05 /* Build configuration list for PBXProject "Chuck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
