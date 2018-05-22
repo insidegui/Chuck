@@ -68,5 +68,19 @@ class ChuckCoreTests: XCTestCase {
         XCTAssert(response.url.absoluteString == "https://api.chucknorris.io/jokes/2cZa3wC8Ts-UI4TiFaFQVw")
         XCTAssert(response.iconUrl.absoluteString == "https://assets.chucknorris.host/img/avatar/chuck-norris.png")
     }
+
+    func testRandomResponseWithCategoryParsing() throws {
+        let data = try Bundle.testBundle.fetch(resource: .randomWithCategory)
+
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let response = try decoder.decode(Joke.self, from: data)
+
+        XCTAssert(response.category == "political")
+        XCTAssert(response.id == "uanj8roxsrwq6pgb0kufia")
+        XCTAssert(response.value == "Guantuanamo Bay, Cuba, is the military code-word for \"Chuck Norris\' basement\".")
+        XCTAssert(response.url.absoluteString == "https://api.chucknorris.io/jokes/uanj8roxsrwq6pgb0kufia")
+        XCTAssert(response.iconUrl.absoluteString == "https://assets.chucknorris.host/img/avatar/chuck-norris.png")
+    }
     
 }
