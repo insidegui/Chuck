@@ -45,5 +45,14 @@ class ChuckCoreTests: XCTestCase {
         XCTAssert(response.total == 0)
         XCTAssertNil(response.result.first)
     }
+
+    func testCategoriesParsing() throws {
+        let data = try Bundle.testBundle.fetch(resource: .categories)
+
+        let categories = try JSONDecoder().decode([String].self, from: data)
+        XCTAssert(categories.count == 16)
+        XCTAssert(categories.first == "explicit")
+        XCTAssert(categories.last == "fashion")
+    }
     
 }
