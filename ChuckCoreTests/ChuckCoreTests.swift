@@ -34,5 +34,16 @@ class ChuckCoreTests: XCTestCase {
         XCTAssert(firstJoke?.url.absoluteString == "https://api.chucknorris.io/jokes/RDCtS4GjQpmwByA3ytBs2A")
         XCTAssert(firstJoke?.iconUrl.absoluteString == "https://assets.chucknorris.host/img/avatar/chuck-norris.png")
     }
+
+    func testEmptySearchResultsParsing() throws {
+        let data = try Bundle.testBundle.fetch(resource: .searchEmpty)
+
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let response = try decoder.decode(SearchResponse.self, from: data)
+
+        XCTAssert(response.total == 0)
+        XCTAssertNil(response.result.first)
+    }
     
 }
