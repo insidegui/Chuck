@@ -77,7 +77,7 @@ class ChuckCoreAPIResponseParsingTests: XCTestCase {
         let response = try decoder.decode(Joke.self, from: data)
 
         XCTAssert(response.categories.count == 1)
-        XCTAssert(response.categories.first == "political")
+        XCTAssert(response.categories.first?.name == "political")
         XCTAssert(response.id == "uanj8roxsrwq6pgb0kufia")
         XCTAssert(response.value == "Guantuanamo Bay, Cuba, is the military code-word for \"Chuck Norris\' basement\".")
         XCTAssert(response.url.absoluteString == "https://api.chucknorris.io/jokes/uanj8roxsrwq6pgb0kufia")
