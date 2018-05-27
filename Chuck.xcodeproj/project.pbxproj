@@ -52,6 +52,8 @@
 		DDDF80AC20BB1736007284F8 /* ChuckAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AB20BB1736007284F8 /* ChuckAPIEndpoint.swift */; };
 		DDDF80AE20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AD20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift */; };
 		DDDF80B020BB2507007284F8 /* ChuckCoreAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AF20BB2507007284F8 /* ChuckCoreAPIClientTests.swift */; };
+		DDDF80B220BB26E7007284F8 /* ChuckAPIEndpoint+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80B120BB26E7007284F8 /* ChuckAPIEndpoint+Test.swift */; };
+		DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80B520BB2856007284F8 /* ChuckAPIEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,8 @@
 		DDDF80AB20BB1736007284F8 /* ChuckAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckAPIEndpoint.swift; sourceTree = "<group>"; };
 		DDDF80AD20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreAPIEndpointTests.swift; sourceTree = "<group>"; };
 		DDDF80AF20BB2507007284F8 /* ChuckCoreAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreAPIClientTests.swift; sourceTree = "<group>"; };
+		DDDF80B120BB26E7007284F8 /* ChuckAPIEndpoint+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChuckAPIEndpoint+Test.swift"; sourceTree = "<group>"; };
+		DDDF80B520BB2856007284F8 /* ChuckAPIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckAPIEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +275,7 @@
 				DD1A57AD20B4D8DA00F52C9E /* TestBundle.swift */,
 				DD1A57AF20B4DD4C00F52C9E /* DecodingErrorExtension.swift */,
 				DDDF80A220BB1072007284F8 /* Joke+Sample.swift */,
+				DDDF80B120BB26E7007284F8 /* ChuckAPIEndpoint+Test.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 		DDDF80A820BB169F007284F8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				DDDF80B520BB2856007284F8 /* ChuckAPIEnvironment.swift */,
 				DDDF80AB20BB1736007284F8 /* ChuckAPIEndpoint.swift */,
 				DDDF80A920BB16B8007284F8 /* ChuckAPIClient.swift */,
 			);
@@ -647,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDDF80AC20BB1736007284F8 /* ChuckAPIEndpoint.swift in Sources */,
+				DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */,
 				DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */,
 				DDDF809520BB0AB7007284F8 /* Category.swift in Sources */,
 				DDDF80A120BB0EB2007284F8 /* ChuckCoreBundle.swift in Sources */,
@@ -665,6 +672,7 @@
 			files = (
 				DDDF80B020BB2507007284F8 /* ChuckCoreAPIClientTests.swift in Sources */,
 				DD1A579220B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift in Sources */,
+				DDDF80B220BB26E7007284F8 /* ChuckAPIEndpoint+Test.swift in Sources */,
 				DDDF80AE20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift in Sources */,
 				DDDF809920BB0CE8007284F8 /* ChuckCorePersistenceTests.swift in Sources */,
 				DD1A57B020B4DD4C00F52C9E /* DecodingErrorExtension.swift in Sources */,

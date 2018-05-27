@@ -9,12 +9,6 @@
 import Foundation
 import os.log
 
-struct ChuckAPIEnvironment {
-    let baseComponents: URLComponents
-
-    static let production = ChuckAPIEnvironment(baseComponents: URLComponents(string: "https://api.chucknorris.io")!)
-}
-
 struct ChuckAPIEndpoint<R: Codable> {
 
     private let path: String
@@ -64,22 +58,7 @@ struct ChuckAPIEndpoint<R: Codable> {
     }
 
     var request: URLRequest? {
-        var components = environment.baseComponents
-
-        components.path = path
-        components.queryItems = query
-
-        guard let url = components.url else {
-            os_log(
-                "Failed to generate URL for endpoint %@",
-                log: .default,
-                type: .error,
-                String(describing: self)
-            )
-            return nil
-        }
-
-        return URLRequest(url: url)
+        return environment.resolve(path: path, query: query)
     }
 
 }
