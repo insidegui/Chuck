@@ -26,9 +26,16 @@ public struct JokeViewModel: Equatable, IdentifiableType {
     }
 
     public let joke: Joke
+    public let categoryViewModel: CategoryViewModel?
 
     public init(joke: Joke) {
         self.joke = joke
+
+        if let firstCategory = joke.categories.first {
+            categoryViewModel = CategoryViewModel(category: firstCategory)
+        } else {
+            categoryViewModel = nil
+        }
     }
 
     public var id: String {
@@ -40,7 +47,7 @@ public struct JokeViewModel: Equatable, IdentifiableType {
     }
 
     public var categoryName: String {
-        return joke.categories.first?.name.uppercased() ?? "UNCATEGORIZED"
+        return categoryViewModel?.name ?? "UNCATEGORIZED"
     }
 
     public var preferredMetrics: Metrics {
