@@ -59,6 +59,11 @@
 		DDDF80C020BB3E59007284F8 /* SearchResponse+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80BF20BB3E59007284F8 /* SearchResponse+Sample.swift */; };
 		DDDF80C320BB3FF3007284F8 /* RecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80C220BB3FF3007284F8 /* RecentSearch.swift */; };
 		DDDF80C520BB404C007284F8 /* RecentSearch+Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80C420BB404C007284F8 /* RecentSearch+Persistence.swift */; };
+		DDDF80C720BB43A5007284F8 /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80C620BB43A5007284F8 /* SyncEngine.swift */; };
+		DDDF80C920BB445C007284F8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80C820BB445C007284F8 /* CategoryViewModel.swift */; };
+		DDDF80CC20BB483C007284F8 /* Collection+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80CB20BB483C007284F8 /* Collection+Shuffle.swift */; };
+		DDDF80CE20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80CD20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift */; };
+		DDDF80D020BB49E9007284F8 /* NSPersistentContainer+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80CF20BB49E9007284F8 /* NSPersistentContainer+Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +173,11 @@
 		DDDF80BF20BB3E59007284F8 /* SearchResponse+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResponse+Sample.swift"; sourceTree = "<group>"; };
 		DDDF80C220BB3FF3007284F8 /* RecentSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearch.swift; sourceTree = "<group>"; };
 		DDDF80C420BB404C007284F8 /* RecentSearch+Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearch+Persistence.swift"; sourceTree = "<group>"; };
+		DDDF80C620BB43A5007284F8 /* SyncEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncEngine.swift; sourceTree = "<group>"; };
+		DDDF80C820BB445C007284F8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		DDDF80CB20BB483C007284F8 /* Collection+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Shuffle.swift"; sourceTree = "<group>"; };
+		DDDF80CD20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreSyncEngineTests.swift; sourceTree = "<group>"; };
+		DDDF80CF20BB49E9007284F8 /* NSPersistentContainer+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+Test.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +268,7 @@
 				DDDF80AD20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift */,
 				DDDF80AF20BB2507007284F8 /* ChuckCoreAPIClientTests.swift */,
 				DDDF80BD20BB39D4007284F8 /* ChuckCoreViewModelTests.swift */,
+				DDDF80CD20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift */,
 				DD1A579320B4D74C00F52C9E /* Info.plist */,
 			);
 			path = ChuckCoreTests;
@@ -290,6 +301,7 @@
 				DDDF80A220BB1072007284F8 /* Joke+Sample.swift */,
 				DDDF80BF20BB3E59007284F8 /* SearchResponse+Sample.swift */,
 				DDDF80B120BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift */,
+				DDDF80CF20BB49E9007284F8 /* NSPersistentContainer+Test.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -437,7 +449,9 @@
 		DDDF80B720BB30D7007284F8 /* UI Support */ = {
 			isa = PBXGroup;
 			children = (
+				DDDF80CA20BB4830007284F8 /* Util */,
 				DDDF80BA20BB30F1007284F8 /* ViewModels */,
+				DDDF80C620BB43A5007284F8 /* SyncEngine.swift */,
 			);
 			path = "UI Support";
 			sourceTree = "<group>";
@@ -446,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				DDDF80BB20BB30FD007284F8 /* JokeViewModel.swift */,
+				DDDF80C820BB445C007284F8 /* CategoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -456,6 +471,14 @@
 				DDDF80C220BB3FF3007284F8 /* RecentSearch.swift */,
 			);
 			path = "User Generated";
+			sourceTree = "<group>";
+		};
+		DDDF80CA20BB4830007284F8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DDDF80CB20BB483C007284F8 /* Collection+Shuffle.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -699,9 +722,12 @@
 				DDDF809520BB0AB7007284F8 /* Category.swift in Sources */,
 				DDDF80A120BB0EB2007284F8 /* ChuckCoreBundle.swift in Sources */,
 				DD1A57A620B4D7AB00F52C9E /* Joke.swift in Sources */,
+				DDDF80C720BB43A5007284F8 /* SyncEngine.swift in Sources */,
+				DDDF80CC20BB483C007284F8 /* Collection+Shuffle.swift in Sources */,
 				DDDF809720BB0BD4007284F8 /* Category+Persistence.swift in Sources */,
 				DDDF80BC20BB30FD007284F8 /* JokeViewModel.swift in Sources */,
 				DDDF80A720BB13E1007284F8 /* NSManagedObjectContext+.swift in Sources */,
+				DDDF80C920BB445C007284F8 /* CategoryViewModel.swift in Sources */,
 				DDDF808F20BB0820007284F8 /* Joke+Persistence.swift in Sources */,
 				DDDF80AA20BB16B8007284F8 /* ChuckAPIClient.swift in Sources */,
 				DDDF809320BB0A53007284F8 /* Model.xcdatamodeld in Sources */,
@@ -712,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDF80CE20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift in Sources */,
 				DDDF80B020BB2507007284F8 /* ChuckCoreAPIClientTests.swift in Sources */,
 				DD1A579220B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift in Sources */,
 				DDDF80B220BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift in Sources */,
@@ -721,6 +748,7 @@
 				DD1A57B020B4DD4C00F52C9E /* DecodingErrorExtension.swift in Sources */,
 				DDDF80BE20BB39D4007284F8 /* ChuckCoreViewModelTests.swift in Sources */,
 				DD1A57AE20B4D8DA00F52C9E /* TestBundle.swift in Sources */,
+				DDDF80D020BB49E9007284F8 /* NSPersistentContainer+Test.swift in Sources */,
 				DDDF80A320BB1072007284F8 /* Joke+Sample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
