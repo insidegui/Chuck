@@ -51,6 +51,7 @@
 		DDDF80AA20BB16B8007284F8 /* ChuckAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80A920BB16B8007284F8 /* ChuckAPIClient.swift */; };
 		DDDF80AC20BB1736007284F8 /* ChuckAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AB20BB1736007284F8 /* ChuckAPIEndpoint.swift */; };
 		DDDF80AE20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AD20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift */; };
+		DDDF80B020BB2507007284F8 /* ChuckCoreAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AF20BB2507007284F8 /* ChuckCoreAPIClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		DDDF80A920BB16B8007284F8 /* ChuckAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckAPIClient.swift; sourceTree = "<group>"; };
 		DDDF80AB20BB1736007284F8 /* ChuckAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckAPIEndpoint.swift; sourceTree = "<group>"; };
 		DDDF80AD20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreAPIEndpointTests.swift; sourceTree = "<group>"; };
+		DDDF80AF20BB2507007284F8 /* ChuckCoreAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreAPIClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				DD1A579120B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift */,
 				DDDF809820BB0CE8007284F8 /* ChuckCorePersistenceTests.swift */,
 				DDDF80AD20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift */,
+				DDDF80AF20BB2507007284F8 /* ChuckCoreAPIClientTests.swift */,
 				DD1A579320B4D74C00F52C9E /* Info.plist */,
 			);
 			path = ChuckCoreTests;
@@ -660,6 +663,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDF80B020BB2507007284F8 /* ChuckCoreAPIClientTests.swift in Sources */,
 				DD1A579220B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift in Sources */,
 				DDDF80AE20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift in Sources */,
 				DDDF809920BB0CE8007284F8 /* ChuckCorePersistenceTests.swift in Sources */,

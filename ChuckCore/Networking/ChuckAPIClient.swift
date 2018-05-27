@@ -42,7 +42,7 @@ public final class ChuckAPIClient {
     }
 
     public lazy var random: Observable<Joke> = {
-        return self.observable(for: .random, responseType: Joke.self)
+        return self.observable(for: .random(), responseType: Joke.self)
     }()
 
     public func random(with category: Category) -> Observable<Joke> {
@@ -54,7 +54,7 @@ public final class ChuckAPIClient {
     }
 
     public lazy var categories: Observable<[ChuckCore.Category]> = {
-        return self.observable(for: .categories, responseType: [ChuckCore.Category].self)
+        return self.observable(for: .categories(), responseType: [ChuckCore.Category].self)
     }()
 
     public func search(with term: String) -> Observable<SearchResponse> {

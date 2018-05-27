@@ -13,7 +13,7 @@ import XCTest
 class ChuckCoreAPIEndpointTests: XCTestCase {
 
     func testRandomEndpointRequestGeneration() {
-        let request = ChuckAPIEndpoint<Joke>.random.request
+        let request = ChuckAPIEndpoint<Joke>.random().request
         XCTAssertEqual(request?.url?.absoluteString, "https://api.chucknorris.io/jokes/random?")
     }
 
@@ -23,7 +23,7 @@ class ChuckCoreAPIEndpointTests: XCTestCase {
     }
 
     func testCategoriesRequestGeneration() {
-        let request = ChuckAPIEndpoint<[ChuckCore.Category]>.categories.request
+        let request = ChuckAPIEndpoint<[ChuckCore.Category]>.categories().request
         XCTAssertEqual(request?.url?.absoluteString, "https://api.chucknorris.io/jokes/categories?")
     }
 
