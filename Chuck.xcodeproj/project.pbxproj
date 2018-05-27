@@ -34,6 +34,20 @@
 		DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
 		DDDF808B20BB078B007284F8 /* RxCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808420BB074E007284F8 /* RxCoreData.framework */; };
 		DDDF808C20BB078B007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
+		DDDF808F20BB0820007284F8 /* Joke+Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF808E20BB0820007284F8 /* Joke+Persistence.swift */; };
+		DDDF809020BB0851007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
+		DDDF809320BB0A53007284F8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDDF809120BB0A53007284F8 /* Model.xcdatamodeld */; };
+		DDDF809520BB0AB7007284F8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF809420BB0AB7007284F8 /* Category.swift */; };
+		DDDF809720BB0BD4007284F8 /* Category+Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF809620BB0BD4007284F8 /* Category+Persistence.swift */; };
+		DDDF809920BB0CE8007284F8 /* ChuckCorePersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF809820BB0CE8007284F8 /* ChuckCorePersistenceTests.swift */; };
+		DDDF809A20BB0D7B007284F8 /* RxCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808420BB074E007284F8 /* RxCoreData.framework */; };
+		DDDF809B20BB0D7B007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
+		DDDF809C20BB0D7B007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
+		DDDF809E20BB0D7B007284F8 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF809D20BB0D7B007284F8 /* Differentiator.framework */; };
+		DDDF80A120BB0EB2007284F8 /* ChuckCoreBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80A020BB0EB2007284F8 /* ChuckCoreBundle.swift */; };
+		DDDF80A320BB1072007284F8 /* Joke+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80A220BB1072007284F8 /* Joke+Sample.swift */; };
+		DDDF80A520BB1128007284F8 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF80A420BB1127007284F8 /* RxBlocking.framework */; };
+		DDDF80A720BB13E1007284F8 /* NSManagedObjectContext+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80A620BB13E1007284F8 /* NSManagedObjectContext+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +136,16 @@
 		DDDF808420BB074E007284F8 /* RxCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCoreData.framework; path = Carthage/Build/iOS/RxCoreData.framework; sourceTree = "<group>"; };
 		DDDF808520BB074E007284F8 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		DDDF808620BB074E007284F8 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		DDDF808E20BB0820007284F8 /* Joke+Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Joke+Persistence.swift"; sourceTree = "<group>"; };
+		DDDF809220BB0A53007284F8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DDDF809420BB0AB7007284F8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		DDDF809620BB0BD4007284F8 /* Category+Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Persistence.swift"; sourceTree = "<group>"; };
+		DDDF809820BB0CE8007284F8 /* ChuckCorePersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCorePersistenceTests.swift; sourceTree = "<group>"; };
+		DDDF809D20BB0D7B007284F8 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		DDDF80A020BB0EB2007284F8 /* ChuckCoreBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreBundle.swift; sourceTree = "<group>"; };
+		DDDF80A220BB1072007284F8 /* Joke+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Joke+Sample.swift"; sourceTree = "<group>"; };
+		DDDF80A420BB1127007284F8 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		DDDF80A620BB13E1007284F8 /* NSManagedObjectContext+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +155,7 @@
 			files = (
 				DDDF808B20BB078B007284F8 /* RxCoreData.framework in Frameworks */,
 				DDDF808C20BB078B007284F8 /* RxSwift.framework in Frameworks */,
+				DDDF809020BB0851007284F8 /* RxDataSources.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1A578B20B4D74C00F52C9E /* ChuckCore.framework in Frameworks */,
+				DDDF809E20BB0D7B007284F8 /* Differentiator.framework in Frameworks */,
+				DDDF809A20BB0D7B007284F8 /* RxCoreData.framework in Frameworks */,
+				DDDF809B20BB0D7B007284F8 /* RxDataSources.framework in Frameworks */,
+				DDDF809C20BB0D7B007284F8 /* RxSwift.framework in Frameworks */,
+				DDDF80A520BB1128007284F8 /* RxBlocking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +217,8 @@
 			children = (
 				DD1A578420B4D74C00F52C9E /* ChuckCore.h */,
 				DD1A578520B4D74C00F52C9E /* Info.plist */,
+				DDDF809F20BB0EA4007284F8 /* TestUtilities */,
+				DDDF808D20BB0800007284F8 /* Persistence */,
 				DD1A57A420B4D7A100F52C9E /* Models */,
 			);
 			path = ChuckCore;
@@ -198,6 +230,7 @@
 				DD1A57AC20B4D8BE00F52C9E /* Util */,
 				DD1A577420B4D5B800F52C9E /* Resources */,
 				DD1A579120B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift */,
+				DDDF809820BB0CE8007284F8 /* ChuckCorePersistenceTests.swift */,
 				DD1A579320B4D74C00F52C9E /* Info.plist */,
 			);
 			path = ChuckCoreTests;
@@ -215,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1A57A520B4D7AB00F52C9E /* Joke.swift */,
+				DDDF809420BB0AB7007284F8 /* Category.swift */,
 				DD1A57A820B4D82400F52C9E /* SearchResponse.swift */,
 			);
 			path = API;
@@ -225,6 +259,7 @@
 			children = (
 				DD1A57AD20B4D8DA00F52C9E /* TestBundle.swift */,
 				DD1A57AF20B4DD4C00F52C9E /* DecodingErrorExtension.swift */,
+				DDDF80A220BB1072007284F8 /* Joke+Sample.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -329,12 +364,33 @@
 		DDDF808220BB074D007284F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDDF80A420BB1127007284F8 /* RxBlocking.framework */,
+				DDDF809D20BB0D7B007284F8 /* Differentiator.framework */,
 				DDDF808520BB074E007284F8 /* RxCocoa.framework */,
 				DDDF808420BB074E007284F8 /* RxCoreData.framework */,
 				DDDF808320BB074E007284F8 /* RxDataSources.framework */,
 				DDDF808620BB074E007284F8 /* RxSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDDF808D20BB0800007284F8 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				DDDF809120BB0A53007284F8 /* Model.xcdatamodeld */,
+				DDDF808E20BB0820007284F8 /* Joke+Persistence.swift */,
+				DDDF809620BB0BD4007284F8 /* Category+Persistence.swift */,
+				DDDF80A620BB13E1007284F8 /* NSManagedObjectContext+.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		DDDF809F20BB0EA4007284F8 /* TestUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				DDDF80A020BB0EB2007284F8 /* ChuckCoreBundle.swift */,
+			);
+			path = TestUtilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +610,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCoreData.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -570,7 +627,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */,
+				DDDF809520BB0AB7007284F8 /* Category.swift in Sources */,
+				DDDF80A120BB0EB2007284F8 /* ChuckCoreBundle.swift in Sources */,
 				DD1A57A620B4D7AB00F52C9E /* Joke.swift in Sources */,
+				DDDF809720BB0BD4007284F8 /* Category+Persistence.swift in Sources */,
+				DDDF80A720BB13E1007284F8 /* NSManagedObjectContext+.swift in Sources */,
+				DDDF808F20BB0820007284F8 /* Joke+Persistence.swift in Sources */,
+				DDDF809320BB0A53007284F8 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,8 +642,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1A579220B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift in Sources */,
+				DDDF809920BB0CE8007284F8 /* ChuckCorePersistenceTests.swift in Sources */,
 				DD1A57B020B4DD4C00F52C9E /* DecodingErrorExtension.swift in Sources */,
 				DD1A57AE20B4D8DA00F52C9E /* TestBundle.swift in Sources */,
+				DDDF80A320BB1072007284F8 /* Joke+Sample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +791,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7439RJLG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ChuckCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -746,6 +815,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7439RJLG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ChuckCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1060,6 +1133,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DDDF809120BB0A53007284F8 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DDDF809220BB0A53007284F8 /* Model.xcdatamodel */,
+			);
+			currentVersion = DDDF809220BB0A53007284F8 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD2825D720B4BF3B00627F05 /* Project object */;
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName=".Category" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Joke" representedClassName=".Joke" syncable="YES">
+        <attribute name="iconUrl" attributeType="URI" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="url" attributeType="URI" syncable="YES"/>
+        <attribute name="value" attributeType="String" syncable="YES"/>
+        <relationship name="categories" toMany="YES" deletionRule="No Action" destinationEntity="Category" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Joke" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Category" positionX="-54" positionY="9" width="128" height="60"/>
+    </elements>
+</model>
