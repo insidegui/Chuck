@@ -8,10 +8,10 @@
 
 import Foundation
 
-public struct Joke: Codable {
+public struct Joke: Codable, Equatable {
     public let id: String
     public let iconUrl: URL
-    public let categories: [String]
+    public let categories: [Category]
     public let url: URL
     public let value: String
 
@@ -28,8 +28,8 @@ public struct Joke: Codable {
         url = try container.decode(URL.self, forKey: .url)
         value = try container.decode(String.self, forKey: .value)
 
-        if let decodedCategories = try? container.decode([String].self, forKey: .categories) {
-            categories = decodedCategories
+        if let categoryNames = try? container.decode([String].self, forKey: .categories) {
+            categories = categoryNames.map(Category.init)
         } else {
             // Set categories to an empty array when the category field can't be decoded
             categories = []
