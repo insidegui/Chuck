@@ -10,8 +10,13 @@
         <attribute name="value" attributeType="String" syncable="YES"/>
         <relationship name="categories" toMany="YES" deletionRule="No Action" destinationEntity="Category" syncable="YES"/>
     </entity>
+    <entity name="RecentSearch" representedClassName=".RecentSearch" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="term" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Joke" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="Category" positionX="-54" positionY="9" width="128" height="60"/>
+        <element name="RecentSearch" positionX="-36" positionY="45" width="128" height="75"/>
     </elements>
 </model>

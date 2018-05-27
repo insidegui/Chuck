@@ -62,4 +62,35 @@ class ChuckCorePersistenceTests: XCTestCase {
         validateSampleJokeFields(with: jokeFromDB)
     }
 
+    /// Ensures that recent searches are stored and retrieved properly
+    func testRecentSearchPersistenceRoundTrip() throws {
+        let referenceDate = Date()
+        let recentSearch = RecentSearch(term: "Apple", createdAt: referenceDate)
+
+        try moc.rx.update(recentSearch)
+
+        let results = try moc.rx.entities(RecentSearch.self).toBlocking().first()
+
+        XCTAssertNotNil(results)
+        XCTAssert(results?.count == 1)
+        XCTAssert(results?.first?.term == "Apple")
+        XCTAssert(results?.first?.createdAt == referenceDate)
+    }
+
+    /// Ensures that searching for the same term repeatedly does not add a new entry to the database for the same search
+    func testRecentSearchesAreNotDuplicated() throws {
+        let search = RecentSearch(term: "Apple")
+        let search2 = RecentSearch(term: "Microsoft")
+        let search3 = RecentSearch(term: "Apple")
+
+        try moc.rx.update(search)
+        try moc.rx.update(search2)
+        try moc.rx.update(search3)
+
+        let results = try moc.rx.entities(RecentSearch.self).toBlocking().first()
+
+        XCTAssertNotNil(results)
+        XCTAssert(results?.count == 2)
+    }
+
 }

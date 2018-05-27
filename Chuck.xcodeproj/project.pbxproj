@@ -57,6 +57,8 @@
 		DDDF80BC20BB30FD007284F8 /* JokeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80BB20BB30FD007284F8 /* JokeViewModel.swift */; };
 		DDDF80BE20BB39D4007284F8 /* ChuckCoreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80BD20BB39D4007284F8 /* ChuckCoreViewModelTests.swift */; };
 		DDDF80C020BB3E59007284F8 /* SearchResponse+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80BF20BB3E59007284F8 /* SearchResponse+Sample.swift */; };
+		DDDF80C320BB3FF3007284F8 /* RecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80C220BB3FF3007284F8 /* RecentSearch.swift */; };
+		DDDF80C520BB404C007284F8 /* RecentSearch+Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80C420BB404C007284F8 /* RecentSearch+Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,8 @@
 		DDDF80BB20BB30FD007284F8 /* JokeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeViewModel.swift; sourceTree = "<group>"; };
 		DDDF80BD20BB39D4007284F8 /* ChuckCoreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreViewModelTests.swift; sourceTree = "<group>"; };
 		DDDF80BF20BB3E59007284F8 /* SearchResponse+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResponse+Sample.swift"; sourceTree = "<group>"; };
+		DDDF80C220BB3FF3007284F8 /* RecentSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearch.swift; sourceTree = "<group>"; };
+		DDDF80C420BB404C007284F8 /* RecentSearch+Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearch+Persistence.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +266,7 @@
 		DD1A57A420B4D7A100F52C9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DDDF80C120BB3FDA007284F8 /* User Generated */,
 				DD1A57A720B4D81000F52C9E /* API */,
 			);
 			path = Models;
@@ -405,6 +410,7 @@
 				DDDF809120BB0A53007284F8 /* Model.xcdatamodeld */,
 				DDDF808E20BB0820007284F8 /* Joke+Persistence.swift */,
 				DDDF809620BB0BD4007284F8 /* Category+Persistence.swift */,
+				DDDF80C420BB404C007284F8 /* RecentSearch+Persistence.swift */,
 				DDDF80A620BB13E1007284F8 /* NSManagedObjectContext+.swift */,
 			);
 			path = Persistence;
@@ -442,6 +448,14 @@
 				DDDF80BB20BB30FD007284F8 /* JokeViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DDDF80C120BB3FDA007284F8 /* User Generated */ = {
+			isa = PBXGroup;
+			children = (
+				DDDF80C220BB3FF3007284F8 /* RecentSearch.swift */,
+			);
+			path = "User Generated";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -678,6 +692,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDDF80AC20BB1736007284F8 /* ChuckAPIEndpoint.swift in Sources */,
+				DDDF80C320BB3FF3007284F8 /* RecentSearch.swift in Sources */,
+				DDDF80C520BB404C007284F8 /* RecentSearch+Persistence.swift in Sources */,
 				DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */,
 				DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */,
 				DDDF809520BB0AB7007284F8 /* Category.swift in Sources */,
