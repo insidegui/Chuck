@@ -11,9 +11,14 @@ import Foundation
 public struct Joke: Codable {
     public let id: String
     public let iconUrl: URL
-    public let category: String?
+    public let categories: [String]
     public let url: URL
     public let value: String
+
+    public enum CodingKeys: String, CodingKey {
+        case id, iconUrl, url, value
+        case categories = "category"
+    }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -23,11 +28,11 @@ public struct Joke: Codable {
         url = try container.decode(URL.self, forKey: .url)
         value = try container.decode(String.self, forKey: .value)
 
-        if let categories = try? container.decode([String].self, forKey: .category) {
-            // The category is represented as an array with one item in some responses
-            category = categories.first
+        if let decodedCategories = try? container.decode([String].self, forKey: .categories) {
+            categories = decodedCategories
         } else {
-            category = try container.decode(String?.self, forKey: .category)
+            // Set categories to an empty array when the category field can't be decoded
+            categories = []
         }
     }
 }

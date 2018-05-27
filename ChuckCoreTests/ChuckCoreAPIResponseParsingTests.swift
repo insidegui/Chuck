@@ -62,7 +62,7 @@ class ChuckCoreAPIResponseParsingTests: XCTestCase {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let response = try decoder.decode(Joke.self, from: data)
 
-        XCTAssertNil(response.category)
+        XCTAssert(response.categories.count == 0)
         XCTAssert(response.id == "2cZa3wC8Ts-UI4TiFaFQVw")
         XCTAssert(response.value == "Chuck Norris is Mysterion.")
         XCTAssert(response.url.absoluteString == "https://api.chucknorris.io/jokes/2cZa3wC8Ts-UI4TiFaFQVw")
@@ -76,7 +76,8 @@ class ChuckCoreAPIResponseParsingTests: XCTestCase {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let response = try decoder.decode(Joke.self, from: data)
 
-        XCTAssert(response.category == "political")
+        XCTAssert(response.categories.count == 1)
+        XCTAssert(response.categories.first == "political")
         XCTAssert(response.id == "uanj8roxsrwq6pgb0kufia")
         XCTAssert(response.value == "Guantuanamo Bay, Cuba, is the military code-word for \"Chuck Norris\' basement\".")
         XCTAssert(response.url.absoluteString == "https://api.chucknorris.io/jokes/uanj8roxsrwq6pgb0kufia")
