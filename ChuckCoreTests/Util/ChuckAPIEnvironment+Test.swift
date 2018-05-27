@@ -1,5 +1,5 @@
 //
-//  ChuckAPIEndpoint+Test.swift
+//  ChuckAPIEnvironment+Test.swift
 //  ChuckCoreTests
 //
 //  Created by Guilherme Rambo on 27/05/18.
