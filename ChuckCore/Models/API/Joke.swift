@@ -28,11 +28,7 @@ public struct Joke: Codable, Equatable {
         url = try container.decode(URL.self, forKey: .url)
         value = try container.decode(String.self, forKey: .value)
 
-        if let categoryNames = try? container.decode([String].self, forKey: .categories) {
-            categories = categoryNames.map(Category.init)
-        } else {
-            // Set categories to an empty array when the category field can't be decoded
-            categories = []
-        }
+        let decodedCategories = try? container.decode([Category].self, forKey: .categories)
+        categories = decodedCategories ?? []
     }
 }
