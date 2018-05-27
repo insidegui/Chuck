@@ -36,4 +36,10 @@ public extension Sequence {
         return result
     }
 
+    func randomSelection(with amount: Int) -> [Element] {
+        let effectiveCount = Swift.min(amount, underestimatedCount)
+        let randomSlice = shuffled()[0..<effectiveCount]
+        return Array(randomSlice)
+    }
+
 }

@@ -60,4 +60,34 @@ class ChuckCoreSyncEngineTests: XCTestCase {
         XCTAssertEqual(categories?.count, 16)
     }
 
+    func testFetchSearchResults() throws {
+        try engine.syncSearchResults(with: "Steve Jobs").toBlocking().single()
+
+        let viewModels = try engine.fetchSearchResults(with: "Steve Jobs").toBlocking().first()
+
+        XCTAssertNotNil(viewModels)
+        XCTAssertEqual(viewModels?.count, 1)
+        XCTAssertEqual(viewModels?.first?.id, "ulsiraupTqykbsK70ifGxw")
+    }
+
+    func testFetchRandomJokes() throws {
+        try engine.syncSearchResults(with: "iPhone").toBlocking().single()
+
+        let viewModels = try engine.fetchRandomJokes(with: 5).toBlocking().first()
+        let viewModels2 = try engine.fetchRandomJokes(with: 5).toBlocking().first()
+
+        XCTAssertNotNil(viewModels)
+        XCTAssertEqual(viewModels?.count, 5)
+        XCTAssertEqual(viewModels2?.count, 5)
+
+        XCTAssertNotEqual(viewModels, viewModels2)
+    }
+
+    func testFetchSingleJoke() throws {
+        let joke = try engine.randomJoke().toBlocking().first()
+
+        XCTAssertNotNil(joke)
+        XCTAssertEqual(joke?.id, "2cZa3wC8Ts-UI4TiFaFQVw")
+    }
+
 }
