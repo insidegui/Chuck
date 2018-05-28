@@ -7,9 +7,25 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import ChuckCore
 
 final class AppFlowController: UIViewController {
+
+    private let disposeBag = DisposeBag()
+
+    let syncEngine: SyncEngine
+
+    init(syncEngine: SyncEngine) {
+        self.syncEngine = syncEngine
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Not supported")
+    }
 
     private lazy var listJokesController = ListJokesViewController()
 
@@ -25,6 +41,16 @@ final class AppFlowController: UIViewController {
         super.viewDidLoad()
 
         installChild(mainNavigationController)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        syncEngine.syncSearchResults(with: "iphone").subscribe(onError: { error in
+            fatalError(error.localizedDescription)
+        }).disposed(by: disposeBag)
+
+        syncEngine.fetchSearchResults(with: "iphone").bind(to: listJokesController.jokes).disposed(by: disposeBag)
     }
 
 }
