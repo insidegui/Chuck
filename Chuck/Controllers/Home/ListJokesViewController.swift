@@ -179,6 +179,7 @@ final class ListJokesViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
         tableView.contentInset = UIEdgeInsets(top: Metrics.headerHeight, left: 0, bottom: 0, right: 0)
+        tableView.scrollIndicatorInsets = tableView.contentInset
 
         bindTableView()
     }
