@@ -187,6 +187,10 @@ final class SearchViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        perform(#selector(showKeyboard), with: nil, afterDelay: 0.1)
+    }
+
+    @objc private func showKeyboard() {
         searchBar.becomeFirstResponder()
     }
 

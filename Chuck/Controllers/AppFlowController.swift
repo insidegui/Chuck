@@ -36,6 +36,7 @@ final class AppFlowController: UIViewController {
         let controller = ListJokesViewController()
 
         controller.delegate = self
+        controller.scrollingDelegate = searchPresenter
 
         return controller
     }()
@@ -65,6 +66,12 @@ final class AppFlowController: UIViewController {
 
         // Bind list initally to a selection of random jokes already cached locally
         bindListState(with: syncEngine.fetchRandomJokes(with: 20))
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        searchPresenter.isPresentingSearch = false
     }
 
     private var listStateDisposeBag = DisposeBag()

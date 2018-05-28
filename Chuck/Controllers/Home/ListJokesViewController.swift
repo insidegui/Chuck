@@ -44,6 +44,7 @@ protocol ListJokesViewControllerDelegate: class {
 final class ListJokesViewController: UIViewController {
 
     weak var delegate: ListJokesViewControllerDelegate?
+    weak var scrollingDelegate: UIScrollViewDelegate?
 
     lazy var isLoading = Variable<Bool>(false)
 
@@ -208,6 +209,18 @@ extension ListJokesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        scrollingDelegate?.scrollViewWillBeginDragging?(scrollView)
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollingDelegate?.scrollViewDidScroll?(scrollView)
+    }
+
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        scrollingDelegate?.scrollViewWillEndDragging?(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
 
 }
