@@ -10,6 +10,7 @@ import UIKit
 
 struct Metrics {
     static let badgeHeight: CGFloat = 24
+    static let smallBadgeHeight: CGFloat = 19
     static let extraPadding: CGFloat = 22
     static let headerHeight: CGFloat = 88
     static let badgeCornerRadius: CGFloat = 4

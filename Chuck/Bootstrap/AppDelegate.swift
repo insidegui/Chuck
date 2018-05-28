@@ -71,6 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         resetStorageIfRunningUITests()
 
+        configureReachability()
+
         window = UIWindow()
         window?.rootViewController = flowController
 
@@ -78,13 +80,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         syncCategories()
 
-        // Sets isOffline to true in the flow controller whenever reachability is not connected
-        reachability.rx.isReachable.map({ !$0 }).bind(to: flowController.isOffline).disposed(by: disposeBag)
-
         return true
     }
 
     private let disposeBag = DisposeBag()
+
+    private func configureReachability() {
+        do {
+            try reachability.startNotifier()
+        } catch {
+            os_log("Failed to start reachability: %{public}@", log: self.log, type: .error, String(describing: error))
+        }
+
+        // Sets isOffline to true in the flow controller whenever reachability is not connected
+        reachability.rx.isReachable.map({ !$0 }).bind(to: flowController.isOffline).disposed(by: disposeBag)
+    }
 
     private func syncCategories() {
         syncEngine.syncCategories().subscribeOn(MainScheduler.instance).subscribe(onError: { [weak self] error in

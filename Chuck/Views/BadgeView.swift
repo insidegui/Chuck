@@ -10,6 +10,19 @@ import UIKit
 
 class BadgeView: UIView {
 
+    enum Style: Int {
+        case small
+        case regular
+    }
+
+    var style: Style = .regular {
+        didSet {
+            guard style != oldValue else { return }
+
+            updateStyle()
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -53,8 +66,23 @@ class BadgeView: UIView {
         layer.cornerRadius = Metrics.badgeCornerRadius
     }
 
+    private var heightForCurrentStyle: CGFloat {
+        switch style {
+        case .regular:
+            return Metrics.badgeHeight
+        case .small:
+            return Metrics.smallBadgeHeight
+        }
+    }
+
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: Metrics.badgeHeight)
+        return CGSize(width: UIViewNoIntrinsicMetric, height: heightForCurrentStyle)
+    }
+
+    private func updateStyle() {
+        titleLabel.font = style == .regular ? .badge : .smallBadge
+
+        invalidateIntrinsicContentSize()
     }
 
 }

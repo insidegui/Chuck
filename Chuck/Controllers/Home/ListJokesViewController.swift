@@ -62,6 +62,18 @@ final class ListJokesViewController: UIViewController {
         return label
     }()
 
+    lazy var offlineBadge: BadgeView = {
+        let badge = BadgeView()
+
+        badge.style = .small
+        badge.title = "OFFLINE"
+        badge.translatesAutoresizingMaskIntoConstraints = false
+        badge.isHidden = true
+        badge.backgroundColor = .error
+
+        return badge
+    }()
+
     private lazy var searchButton: UIButton = {
         let button = UIButton(type: .system)
 
@@ -122,6 +134,7 @@ final class ListJokesViewController: UIViewController {
         installTableView()
         installHeader()
         installTitleLabel()
+        installOfflineBadge()
         installSearchButton()
         installActivityIndicator()
     }
@@ -130,6 +143,12 @@ final class ListJokesViewController: UIViewController {
         view.addSubview(titleLabel)
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Metrics.padding).isActive = true
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Metrics.extraPadding).isActive = true
+    }
+
+    private func installOfflineBadge() {
+        view.addSubview(offlineBadge)
+        offlineBadge.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        offlineBadge.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
     }
 
     private func installSearchButton() {

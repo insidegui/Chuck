@@ -13,4 +13,5 @@ extension UIFont {
     static let info = UIFont.systemFont(ofSize: 16, weight: .medium)
     static let largeButton = UIFont.systemFont(ofSize: 18, weight: .medium)
     static let badge = UIFont.systemFont(ofSize: 14, weight: .medium)
+    static let smallBadge = UIFont.systemFont(ofSize: 11, weight: .medium)
 }

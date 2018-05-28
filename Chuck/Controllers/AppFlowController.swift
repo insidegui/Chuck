@@ -68,6 +68,9 @@ final class AppFlowController: UIViewController {
 
         // Bind list initally to a selection of random jokes already cached locally
         bindListState(with: syncEngine.fetchRandomJokes(with: 20))
+
+        // Show offline badge when in offline mode
+        isOffline.asObservable().map({ !$0 }).bind(to: listJokesController.offlineBadge.rx.isHidden).disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {
