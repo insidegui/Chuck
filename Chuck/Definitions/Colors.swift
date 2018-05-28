@@ -17,4 +17,5 @@ extension UIColor {
     static let primary = UIColor(red: 0.0, green: 118.0 / 255.0, blue: 1.0, alpha: 1.0)
     static let buttonBackground = UIColor(red: 0.0, green: 106.0 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)
     static let buttonText: UIColor = .white
+    static let vibrantBadgeBackground = UIColor.white.withAlphaComponent(0.2)
 }

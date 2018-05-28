@@ -41,7 +41,7 @@ final class AppFlowController: UIViewController {
     }()
 
     private lazy var searchController: SearchViewController = {
-        let controller = SearchViewController()
+        let controller = SearchViewController(syncEngine: syncEngine)
 
         controller.delegate = self
 

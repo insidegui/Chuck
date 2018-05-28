@@ -21,14 +21,19 @@ final class SearchViewController: UIViewController {
 
     weak var delegate: SearchViewControllerDelegate?
 
-    lazy var suggestedCategories = Variable<[CategoryViewModel]>([])
-    lazy var recentSearches = Variable<[RecentSearchViewModel]>([])
+    let syncEngine: SyncEngine
 
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
+    init(syncEngine: SyncEngine) {
+        self.syncEngine = syncEngine
+
+        super.init(nibName: nil, bundle: nil)
 
         modalPresentationStyle = .overCurrentContext
         modalPresentationCapturesStatusBarAppearance = true
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Not supported")
     }
 
     private lazy var blurEffect = UIBlurEffect(style: .dark)
@@ -53,7 +58,7 @@ final class SearchViewController: UIViewController {
     }()
 
     private func makeSearchBarBackground() -> UIImage {
-        let width = view.bounds.size.width + Metrics.padding * 2
+        let width = view.bounds.size.width + Metrics.padding
 
         let rect = CGRect(x: 0, y: 0, width: width, height: Metrics.searchBarHeight)
 
@@ -98,6 +103,15 @@ final class SearchViewController: UIViewController {
         return bar
     }()
 
+    lazy var suggestionsController: SearchSuggestionsViewController = {
+        let controller = SearchSuggestionsViewController()
+
+        controller.delegate = self
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+
+        return controller
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -106,6 +120,7 @@ final class SearchViewController: UIViewController {
 
         installBackgroundAndVibrancy()
         installSearchBar()
+        installSuggestionsController()
     }
 
     private func installBackgroundAndVibrancy() {
@@ -119,8 +134,29 @@ final class SearchViewController: UIViewController {
     private func installSearchBar() {
         vibrancyView.contentView.addSubview(searchBar)
         searchBar.topAnchor.constraint(equalTo: vibrancyView.contentView.topAnchor, constant: Metrics.extraPadding * 2).isActive = true
-        searchBar.leadingAnchor.constraint(equalTo: vibrancyView.contentView.leadingAnchor).isActive = true
-        searchBar.trailingAnchor.constraint(equalTo: vibrancyView.contentView.trailingAnchor).isActive = true
+        searchBar.leadingAnchor.constraint(equalTo: vibrancyView.contentView.leadingAnchor, constant: Metrics.padding / 2).isActive = true
+        searchBar.trailingAnchor.constraint(equalTo: vibrancyView.contentView.trailingAnchor, constant: -Metrics.padding / 2).isActive = true
+    }
+
+    private func installSuggestionsController() {
+        addChildViewController(suggestionsController)
+
+        vibrancyView.contentView.addSubview(suggestionsController.view)
+
+        suggestionsController.view.leadingAnchor.constraint(equalTo: vibrancyView.contentView.leadingAnchor, constant: Metrics.padding).isActive = true
+        suggestionsController.view.trailingAnchor.constraint(equalTo: vibrancyView.contentView.trailingAnchor, constant: -Metrics.padding).isActive = true
+        suggestionsController.view.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: Metrics.extraPadding).isActive = true
+
+        suggestionsController.didMove(toParentViewController: self)
+
+        bindSuggestionsController()
+    }
+
+    private let disposeBag = DisposeBag()
+
+    private func bindSuggestionsController() {
+        syncEngine.fetchRandomCategories().bind(to: suggestionsController.categories).disposed(by: disposeBag)
+        syncEngine.fetchRecentSearches(with: 16).bind(to: suggestionsController.recents).disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -153,10 +189,13 @@ extension SearchViewController: UISearchBarDelegate {
         delegate?.searchViewController(self, didSearchForTerm: term)
     }
 
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        guard let term = searchBar.text, term.count > 3 else { return false }
+}
 
-        return true
+extension SearchViewController: SearchSuggestionsViewControllerDelegate {
+
+    func searchSuggestionsViewController(_ controller: SearchSuggestionsViewController, didSelectSuggestionWithTerm term: String) {
+        searchBar.text = term
+        delegate?.searchViewController(self, didSearchForTerm: term)
     }
 
 }
