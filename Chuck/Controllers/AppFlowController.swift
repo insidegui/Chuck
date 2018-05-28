@@ -110,7 +110,7 @@ final class AppFlowController: UIViewController {
         state.asObservable().subscribe(onNext: { [weak self] currentState in
             switch currentState {
             case .empty:
-                self?.showEmptyState()
+                self?.showEmptyState(with: Messages.firstLaunchEmtpy, actionTitle: "SEARCH FACTS")
             case .jokes(let jokes):
                 self?.hideEmptyState()
                 self?.listJokesController.jokes.value = jokes
@@ -124,7 +124,6 @@ final class AppFlowController: UIViewController {
 
     private func showErrorState(with error: Error) {
         listJokesController.isLoading.value = false
-        listJokesController.jokes.value = []
         hideEmptyState()
     }
 
@@ -136,7 +135,9 @@ final class AppFlowController: UIViewController {
         return controller
     }()
 
-    private func showEmptyState() {
+    private func showEmptyState(with message: String, actionTitle: String) {
+        guard listJokesController.isLoading.value == false else { return }
+
         if emptyViewController.view.superview == nil {
             addChildViewController(emptyViewController)
             emptyViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -148,6 +149,9 @@ final class AppFlowController: UIViewController {
 
             emptyViewController.didMove(toParentViewController: self)
         }
+
+        emptyViewController.message = message
+        emptyViewController.actionTitle = actionTitle
 
         emptyViewController.view.isHidden = false
         listJokesController.jokes.value = []
@@ -176,18 +180,11 @@ final class AppFlowController: UIViewController {
 
     func fetchSearchResults(with term: String) {
         unbindListState()
+        hideEmptyState()
 
         listJokesController.isLoading.value = true
 
         syncEngine.syncSearchResults(with: term).subscribe { [weak self] event in
-            switch event {
-            case .error(let error):
-                self?.hideEmptyState()
-                self?.showErrorState(with: error)
-            default:
-                break
-            }
-
             self?.listJokesController.isLoading.value = false
         }.disposed(by: listStateDisposeBag)
 
@@ -195,7 +192,8 @@ final class AppFlowController: UIViewController {
             if results.count > 0 {
                 self?.hideEmptyState()
             } else {
-                self?.showEmptyState()
+                let message = self?.isOffline.value == true ? Messages.searchResultsEmtpyOffline : Messages.searchResultsEmtpy
+                self?.showEmptyState(with: message, actionTitle: "")
             }
         }).bind(to: listJokesController.jokes).disposed(by: listStateDisposeBag)
     }

@@ -16,6 +16,27 @@ class EmptyViewController: UIViewController {
 
     weak var delegate: EmptyViewControllerDelegate?
 
+    var message: String? {
+        get {
+            return infoLabel.text
+        }
+        set {
+            infoLabel.text = newValue
+        }
+    }
+
+    var actionTitle: String? {
+        get {
+            return actionButton.title(for: .normal)
+        }
+        set {
+            let shouldHide = newValue == nil || newValue?.count == 0
+            actionButton.isHidden = shouldHide
+
+            actionButton.setTitle(newValue, for: .normal)
+        }
+    }
+
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
 
@@ -24,22 +45,15 @@ class EmptyViewController: UIViewController {
         label.lineBreakMode = .byWordWrapping
         label.font = .info
         label.textColor = .infoText
-        label.text = """
-                     It looks like you haven't seen any
-                     facts yet, which is unfortunate.
-
-                     Start by searching for some! If you just want to see a random fact, shake your device.
-                     """
 
         return label
     }()
 
-    private lazy var searchButton: UIButton = {
+    private lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
 
         button.widthAnchor.constraint(equalToConstant: Metrics.largeButtonWidth).isActive = true
         button.heightAnchor.constraint(equalToConstant: Metrics.largeButtonHeight).isActive = true
-        button.setTitle("SEARCH FACTS", for: .normal)
         button.backgroundColor = .buttonBackground
         button.setTitleColor(.buttonText, for: .normal)
         button.titleLabel?.font = .largeButton
@@ -50,7 +64,7 @@ class EmptyViewController: UIViewController {
     }()
 
     private lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [infoLabel, searchButton])
+        let stack = UIStackView(arrangedSubviews: [infoLabel, actionButton])
 
         stack.spacing = Metrics.extraPadding
         stack.axis = .vertical
