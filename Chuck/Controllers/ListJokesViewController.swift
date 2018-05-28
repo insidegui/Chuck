@@ -70,6 +70,22 @@ final class ListJokesViewController: UIViewController {
         return button
     }()
 
+    private var effectiveHeaderHeight: CGFloat {
+        return Metrics.headerHeight + view.safeAreaInsets.top
+    }
+
+    private lazy var headerHeightConstraint: NSLayoutConstraint = {
+        return headerView.heightAnchor.constraint(equalToConstant: effectiveHeaderHeight)
+    }()
+
+    private lazy var headerView: UIVisualEffectView = {
+        let header = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+
+        header.translatesAutoresizingMaskIntoConstraints = false
+
+        return header
+    }()
+
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
 
@@ -88,6 +104,7 @@ final class ListJokesViewController: UIViewController {
         view.backgroundColor = .white
 
         installTableView()
+        installHeader()
         installTitleLabel()
         installSearchButton()
     }
@@ -106,6 +123,22 @@ final class ListJokesViewController: UIViewController {
 
     @objc private func searchTapped() {
         delegate?.listJokesViewControllerDidSelectSearch(self)
+    }
+
+    // MARK: - Header
+
+    private func installHeader() {
+        view.addSubview(headerView)
+        headerHeightConstraint.isActive = true
+        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    }
+
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+
+        headerHeightConstraint.constant = effectiveHeaderHeight
     }
 
     // MARK: - Table view
