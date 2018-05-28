@@ -135,10 +135,6 @@ final class AppFlowController: UIViewController {
 
     // MARK: - Actions
 
-    func presentSearch(interactive: Bool = false) {
-        present(searchController, animated: true, completion: nil)
-    }
-
     func shareJoke(with viewModel: JokeViewModel) {
         let activityController = UIActivityViewController(activityItems: [viewModel.url], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
@@ -208,12 +204,18 @@ final class AppFlowController: UIViewController {
         fetchRandomJoke()
     }
 
+    // MARK: - Search Presentation
+
+    private lazy var searchPresenter: SearchPresentationDriver = {
+        return SearchPresentationDriver(searchController: searchController, presenter: self)
+    }()
+
 }
 
 extension AppFlowController: ListJokesViewControllerDelegate {
 
     func listJokesViewControllerDidSelectSearch(_ controller: ListJokesViewController) {
-        presentSearch()
+        searchPresenter.presentSearch()
     }
 
     func listJokesViewController(_ controller: ListJokesViewController, didSelectShareWithViewModel viewModel: JokeViewModel) {
@@ -225,7 +227,7 @@ extension AppFlowController: ListJokesViewControllerDelegate {
 extension AppFlowController: EmptyViewControllerDelegate {
 
     func emptyViewControllerDidSelectSearch(_ controller: EmptyViewController) {
-        presentSearch()
+        searchPresenter.presentSearch()
     }
 
 }

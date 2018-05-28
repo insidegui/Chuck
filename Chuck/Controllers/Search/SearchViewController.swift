@@ -204,6 +204,22 @@ final class SearchViewController: UIViewController {
         delegate?.searchViewControllerWantsToBeDismissed(self)
     }
 
+    // MARK: - Transition Support
+
+    func configureWithDismissedState() {
+        backgroundView.effect = nil
+        searchBar.alpha = 0
+        suggestionsController.view.alpha = 0
+        vibrancyView.layer.transform = CATransform3DMakeTranslation(0, -100, 0)
+    }
+
+    func configureWithPresentedState() {
+        backgroundView.effect = blurEffect
+        searchBar.alpha = 1
+        suggestionsController.view.alpha = 1
+        vibrancyView.layer.transform = CATransform3DIdentity
+    }
+
 }
 
 extension SearchViewController: UISearchBarDelegate {
