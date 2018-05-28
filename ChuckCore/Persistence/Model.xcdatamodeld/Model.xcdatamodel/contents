@@ -2,21 +2,22 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName=".Category" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="jokes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Joke" inverseName="categories" inverseEntity="Joke" syncable="YES"/>
     </entity>
     <entity name="Joke" representedClassName=".Joke" syncable="YES">
         <attribute name="iconUrl" attributeType="URI" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="URI" syncable="YES"/>
         <attribute name="value" attributeType="String" syncable="YES"/>
-        <relationship name="categories" toMany="YES" deletionRule="No Action" destinationEntity="Category" syncable="YES"/>
+        <relationship name="categories" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="jokes" inverseEntity="Category" syncable="YES"/>
     </entity>
     <entity name="RecentSearch" representedClassName=".RecentSearch" syncable="YES">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="term" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Category" positionX="-54" positionY="9" width="128" height="75"/>
         <element name="Joke" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Category" positionX="-54" positionY="9" width="128" height="60"/>
         <element name="RecentSearch" positionX="-36" positionY="45" width="128" height="75"/>
     </elements>
 </model>
