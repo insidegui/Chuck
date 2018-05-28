@@ -42,6 +42,8 @@ protocol BadgesCollectionViewControllerDelegate: class {
 
 class BadgesCollectionViewController: UIViewController {
 
+    var uiTestingLabelForCells: UITestingLabel = .categoryBadge
+
     weak var delegate: BadgesCollectionViewControllerDelegate?
 
     lazy var badgeTitles = Variable<[String]>([])
@@ -93,10 +95,11 @@ class BadgesCollectionViewController: UIViewController {
     private func bindCollectionView() {
         collectionView.register(BadgeCollectionViewCell.self, forCellWithReuseIdentifier: BadgeSectionModel.cellIdentifier)
 
-        let dataSource = RxCollectionViewSectionedReloadDataSource<BadgeSectionModel>(configureCell: { _, collectionView, indexPath, title in
+        let dataSource = RxCollectionViewSectionedReloadDataSource<BadgeSectionModel>(configureCell: { [weak self] _, collectionView, indexPath, title in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeSectionModel.cellIdentifier, for: indexPath) as! BadgeCollectionViewCell
 
             cell.title = title
+            cell.uiTestingLabel = self?.uiTestingLabelForCells
 
             return cell
         }, configureSupplementaryView: { _, _, _, _ in fatalError() })

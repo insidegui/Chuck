@@ -90,6 +90,7 @@ final class SearchViewController: UIViewController {
         bar.barStyle = .black
         bar.keyboardAppearance = .dark
         bar.backgroundImage = UIImage()
+        bar.uiTestingLabel = .searchBar
 
         bar.setSearchFieldBackgroundImage(makeSearchBarBackground(), for: .normal)
 
@@ -117,6 +118,8 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        uiTestingLabel = .searchViewController
 
         view.isOpaque = false
         view.backgroundColor = .clear

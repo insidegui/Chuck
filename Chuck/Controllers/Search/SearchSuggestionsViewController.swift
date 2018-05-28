@@ -26,6 +26,7 @@ class SearchSuggestionsViewController: UIViewController {
     private lazy var categoriesController: BadgesCollectionViewController = {
         let controller = BadgesCollectionViewController()
 
+        controller.uiTestingLabelForCells = .categoryBadge
         controller.delegate = self
 
         return controller
@@ -34,6 +35,7 @@ class SearchSuggestionsViewController: UIViewController {
     private lazy var recentsController: BadgesCollectionViewController = {
         let controller = BadgesCollectionViewController()
 
+        controller.uiTestingLabelForCells = .recentSearchBadge
         controller.delegate = self
 
         return controller

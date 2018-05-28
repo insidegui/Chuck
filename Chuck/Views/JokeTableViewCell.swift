@@ -76,6 +76,8 @@ class JokeTableViewCell: UITableViewCell {
     }()
 
     private func setup() {
+        uiTestingLabel = .jokeCell
+
         clipsToBounds = false
         contentView.clipsToBounds = false
 

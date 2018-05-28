@@ -70,6 +70,7 @@ final class ListJokesViewController: UIViewController {
         button.setImage(#imageLiteral(resourceName: "search"), for: .normal)
         button.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
         button.tintColor = .primary
+        button.uiTestingLabel = .searchButton
 
         return button
     }()
@@ -79,6 +80,7 @@ final class ListJokesViewController: UIViewController {
 
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.hidesWhenStopped = true
+        indicator.uiTestingLabel = .loadingIndicator
 
         return indicator
     }()

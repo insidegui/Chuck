@@ -63,6 +63,8 @@ class EmptyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.uiTestingLabel = .emptyView
+
         view.addSubview(stackView)
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Metrics.extraPadding).isActive = true
