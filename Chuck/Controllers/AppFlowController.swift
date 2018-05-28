@@ -69,8 +69,12 @@ final class AppFlowController: UIViewController {
 
     private var listStateDisposeBag = DisposeBag()
 
-    private func bindListState(with observable: Observable<[JokeViewModel]>) {
+    private func unbindListState() {
         listStateDisposeBag = DisposeBag()
+    }
+
+    private func bindListState(with observable: Observable<[JokeViewModel]>) {
+        unbindListState()
 
         // Maps the current list observable to either an empty list state or a list full of jokes
         let stateObservable = observable.map { jokes -> ListState in
@@ -122,6 +126,7 @@ final class AppFlowController: UIViewController {
         }
 
         emptyViewController.view.isHidden = false
+        listJokesController.jokes.value = []
     }
 
     private func hideEmptyState() {
@@ -147,6 +152,25 @@ final class AppFlowController: UIViewController {
         })
 
         bindListState(with: randomJokeObservable)
+    }
+
+    func fetchSearchResults(with term: String) {
+        unbindListState()
+
+        listJokesController.isLoading.value = true
+
+        syncEngine.syncSearchResults(with: term).subscribe { [weak self] event in
+            switch event {
+            case .error(let error):
+                self?.showErrorState(with: error)
+            default:
+                break
+            }
+
+            self?.listJokesController.isLoading.value = false
+        }.disposed(by: listStateDisposeBag)
+
+        syncEngine.fetchSearchResults(with: term).bind(to: listJokesController.jokes).disposed(by: listStateDisposeBag)
     }
 
     // MARK: - Interaction
@@ -213,7 +237,8 @@ extension AppFlowController: SearchViewControllerDelegate {
     }
 
     func searchViewController(_ controller: SearchViewController, didSearchForTerm term: String) {
-        print("term = \(term)")
+        dismiss(animated: true, completion: nil)
+        fetchSearchResults(with: term)
     }
 
 }

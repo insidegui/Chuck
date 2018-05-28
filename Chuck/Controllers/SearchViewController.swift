@@ -93,6 +93,7 @@ final class SearchViewController: UIViewController {
         }
 
         bar.searchTextPositionAdjustment = UIOffset(horizontal: Metrics.padding, vertical: 0)
+        bar.delegate = self
 
         return bar
     }()
@@ -120,21 +121,6 @@ final class SearchViewController: UIViewController {
         searchBar.topAnchor.constraint(equalTo: vibrancyView.contentView.topAnchor, constant: Metrics.extraPadding * 2).isActive = true
         searchBar.leadingAnchor.constraint(equalTo: vibrancyView.contentView.leadingAnchor).isActive = true
         searchBar.trailingAnchor.constraint(equalTo: vibrancyView.contentView.trailingAnchor).isActive = true
-
-        bindSearchBar()
-    }
-
-    private let disposeBag = DisposeBag()
-
-    private func bindSearchBar() {
-        let signal = searchBar.rx.text.asObservable()
-                         .debounce(0.5, scheduler: MainScheduler.instance)
-                         .filter({ ($0 ?? "").count > 3 })
-
-        signal.subscribe(onNext: { [weak self] term in
-            guard let `self` = self, let term = term else { return }
-            self.delegate?.searchViewController(self, didSearchForTerm: term)
-        }).disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -155,6 +141,22 @@ final class SearchViewController: UIViewController {
 
     @objc private func backgroundTapped() {
         delegate?.searchViewControllerWantsToBeDismissed(self)
+    }
+
+}
+
+extension SearchViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let term = searchBar.text, term.count > 3 else { return }
+
+        delegate?.searchViewController(self, didSearchForTerm: term)
+    }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        guard let term = searchBar.text, term.count > 3 else { return false }
+
+        return true
     }
 
 }
