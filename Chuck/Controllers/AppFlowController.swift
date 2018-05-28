@@ -14,7 +14,11 @@ final class AppFlowController: UIViewController {
     private lazy var listJokesController = ListJokesViewController()
 
     private lazy var mainNavigationController: UINavigationController = {
-        return UINavigationController(rootViewController: listJokesController)
+        let controller = UINavigationController(rootViewController: listJokesController)
+
+        controller.isNavigationBarHidden = true
+
+        return controller
     }()
 
     override func viewDidLoad() {

@@ -29,6 +29,9 @@
 		DD28260320B4BF3C00627F05 /* ChuckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28260220B4BF3C00627F05 /* ChuckUITests.swift */; };
 		DD28261520B4C03400627F05 /* ListJokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28261420B4C03400627F05 /* ListJokesViewController.swift */; };
 		DD28261820B4C05F00627F05 /* UIViewController+Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28261720B4C05F00627F05 /* UIViewController+Children.swift */; };
+		DD71CBEF20BB8C0500BB5F47 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBEE20BB8C0500BB5F47 /* Metrics.swift */; };
+		DD71CBF120BB8C5900BB5F47 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBF020BB8C5900BB5F47 /* Fonts.swift */; };
+		DD71CBF320BB8C8500BB5F47 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBF220BB8C8500BB5F47 /* Colors.swift */; };
 		DDDF808720BB074E007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
 		DDDF808920BB074E007284F8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
@@ -149,6 +152,9 @@
 		DD28260420B4BF3C00627F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD28261420B4C03400627F05 /* ListJokesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListJokesViewController.swift; sourceTree = "<group>"; };
 		DD28261720B4C05F00627F05 /* UIViewController+Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Children.swift"; sourceTree = "<group>"; };
+		DD71CBEE20BB8C0500BB5F47 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		DD71CBF020BB8C5900BB5F47 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		DD71CBF220BB8C8500BB5F47 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DDDF808320BB074E007284F8 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		DDDF808420BB074E007284F8 /* RxCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCoreData.framework; path = Carthage/Build/iOS/RxCoreData.framework; sourceTree = "<group>"; };
 		DDDF808520BB074E007284F8 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -336,6 +342,7 @@
 		DD2825E120B4BF3B00627F05 /* Chuck */ = {
 			isa = PBXGroup;
 			children = (
+				DD71CBED20BB8BFA00BB5F47 /* Definitions */,
 				DD28261020B4BF6900627F05 /* Bootstrap */,
 				DD28261220B4BF7300627F05 /* Views */,
 				DD28261120B4BF7000627F05 /* Controllers */,
@@ -403,6 +410,16 @@
 				DD28261720B4C05F00627F05 /* UIViewController+Children.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD71CBED20BB8BFA00BB5F47 /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				DD71CBEE20BB8C0500BB5F47 /* Metrics.swift */,
+				DD71CBF020BB8C5900BB5F47 /* Fonts.swift */,
+				DD71CBF220BB8C8500BB5F47 /* Colors.swift */,
+			);
+			path = Definitions;
 			sourceTree = "<group>";
 		};
 		DDDF808220BB074D007284F8 /* Frameworks */ = {
@@ -763,7 +780,10 @@
 			files = (
 				DD28261520B4C03400627F05 /* ListJokesViewController.swift in Sources */,
 				DD2825E520B4BF3B00627F05 /* AppFlowController.swift in Sources */,
+				DD71CBEF20BB8C0500BB5F47 /* Metrics.swift in Sources */,
+				DD71CBF320BB8C8500BB5F47 /* Colors.swift in Sources */,
 				DD2825E320B4BF3B00627F05 /* AppDelegate.swift in Sources */,
+				DD71CBF120BB8C5900BB5F47 /* Fonts.swift in Sources */,
 				DD28261820B4C05F00627F05 /* UIViewController+Children.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
