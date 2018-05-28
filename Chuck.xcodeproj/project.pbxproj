@@ -398,13 +398,10 @@
 		DD28261120B4BF7000627F05 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD28261620B4C05300627F05 /* Extensions */,
 				DD2825E420B4BF3B00627F05 /* AppFlowController.swift */,
-				DD28261420B4C03400627F05 /* ListJokesViewController.swift */,
-				DD71CBF820BBA9BB00BB5F47 /* EmptyViewController.swift */,
-				DD71CBFA20BBB03000BB5F47 /* SearchViewController.swift */,
-				DD71CBFC20BBBC9200BB5F47 /* BadgesCollectionViewController.swift */,
-				DD71CC0020BBBFAF00BB5F47 /* SearchSuggestionsViewController.swift */,
+				DD28261620B4C05300627F05 /* Extensions */,
+				DD71CC0920BBCCFB00BB5F47 /* Home */,
+				DD71CC0720BBCCE600BB5F47 /* Search */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -447,6 +444,25 @@
 				DD71CBF220BB8C8500BB5F47 /* Colors.swift */,
 			);
 			path = Definitions;
+			sourceTree = "<group>";
+		};
+		DD71CC0720BBCCE600BB5F47 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DD71CBFA20BBB03000BB5F47 /* SearchViewController.swift */,
+				DD71CBFC20BBBC9200BB5F47 /* BadgesCollectionViewController.swift */,
+				DD71CC0020BBBFAF00BB5F47 /* SearchSuggestionsViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DD71CC0920BBCCFB00BB5F47 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DD28261420B4C03400627F05 /* ListJokesViewController.swift */,
+				DD71CBF820BBA9BB00BB5F47 /* EmptyViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		DDDF808220BB074D007284F8 /* Frameworks */ = {
