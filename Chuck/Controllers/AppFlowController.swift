@@ -116,6 +116,7 @@ final class AppFlowController: UIViewController {
     // MARK: - States
 
     private func showErrorState(with error: Error) {
+        listJokesController.jokes.value = []
         hideEmptyState()
     }
 
@@ -165,6 +166,7 @@ final class AppFlowController: UIViewController {
         syncEngine.syncSearchResults(with: term).subscribe { [weak self] event in
             switch event {
             case .error(let error):
+                self?.hideEmptyState()
                 self?.showErrorState(with: error)
             default:
                 break
@@ -173,7 +175,13 @@ final class AppFlowController: UIViewController {
             self?.listJokesController.isLoading.value = false
         }.disposed(by: listStateDisposeBag)
 
-        syncEngine.fetchSearchResults(with: term).bind(to: listJokesController.jokes).disposed(by: listStateDisposeBag)
+        syncEngine.fetchSearchResults(with: term).do(onNext: { [weak self] results in
+            if results.count > 0 {
+                self?.hideEmptyState()
+            } else {
+                self?.showEmptyState()
+            }
+        }).bind(to: listJokesController.jokes).disposed(by: listStateDisposeBag)
     }
 
     // MARK: - Interaction
