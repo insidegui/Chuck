@@ -38,6 +38,7 @@ private struct JokeSectionModel: AnimatableSectionModelType {
 
 protocol ListJokesViewControllerDelegate: class {
     func listJokesViewControllerDidSelectSearch(_ controller: ListJokesViewController)
+    func listJokesViewController(_ controller: ListJokesViewController, didSelectShareWithViewModel viewModel: JokeViewModel)
 }
 
 final class ListJokesViewController: UIViewController {
@@ -163,6 +164,11 @@ final class ListJokesViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: JokeSectionModel.cellIdentifier) as! JokeTableViewCell
 
             cell.viewModel = item
+
+            cell.didSelectShare = { [weak self] in
+                guard let `self` = self else { return }
+                self.delegate?.listJokesViewController(self, didSelectShareWithViewModel: item)
+            }
 
             return cell
         })

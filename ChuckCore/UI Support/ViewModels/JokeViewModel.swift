@@ -50,6 +50,10 @@ public struct JokeViewModel: Equatable, IdentifiableType {
         return categoryViewModel?.name ?? "UNCATEGORIZED"
     }
 
+    public var url: URL {
+        return joke.url
+    }
+
     public var preferredMetrics: Metrics {
         switch body.count {
         case 0...80:
