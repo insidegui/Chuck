@@ -34,7 +34,7 @@ public final class SyncEngine {
     /// - Parameter term: the term to search for
     /// - Returns: An Observable that can be used to check for completion and errors
     public func syncSearchResults(with term: String) -> Observable<Void> {
-        return client.search(with: term).do(onNext: { [unowned self] response in
+        return client.search(with: term).observeOn(MainScheduler.instance).do(onNext: { [unowned self] response in
             try response.result.forEach(self.moc.rx.update)
         }).map { _ in Void() }
     }
@@ -56,7 +56,7 @@ public final class SyncEngine {
     ///
     /// - Returns: An Observable with a random joke fresh from the API
     public func randomJoke() -> Observable<JokeViewModel> {
-        return client.random.do(onNext: { [unowned self] joke in
+        return client.random.observeOn(MainScheduler.instance).do(onNext: { [unowned self] joke in
             try self.moc.rx.update(joke)
         }).map(JokeViewModel.init)
     }
@@ -67,7 +67,7 @@ public final class SyncEngine {
     /// - Parameter categoryName: the category name to get a random joke for
     /// - Returns: An Observable with a random joke in the specified category fresh from the API
     public func randomJoke(with categoryName: String) -> Observable<JokeViewModel> {
-        return client.random(with: categoryName).do(onNext: { [unowned self] joke in
+        return client.random(with: categoryName).observeOn(MainScheduler.instance).do(onNext: { [unowned self] joke in
             try self.moc.rx.update(joke)
         }).map(JokeViewModel.init)
     }
@@ -92,7 +92,7 @@ public final class SyncEngine {
     ///
     /// - Returns: An Observable that can be used to check for completion and errors
     public func syncCategories() -> Observable<Void> {
-        return client.categories.do(onNext: { [unowned self] categories in
+        return client.categories.observeOn(MainScheduler.instance).do(onNext: { [unowned self] categories in
             try categories.forEach(self.moc.rx.update)
         }).map { _ in Void() }
     }
