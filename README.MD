@@ -2,7 +2,7 @@
 
 Browse [Chuck Norris Facts](https://api.chucknorris.io/) on your iPhone.
 
-### Start by doing a search for your favorite keywords or using one of the suggested topics. To search, 
+### Start by doing a search for your favorite keywords or using one of the suggested topics. To search, tap the search button or pull down on the main screen.
 
 ![search](./Screenshots/2-search.png)
 
