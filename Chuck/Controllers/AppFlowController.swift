@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChuckCore
 
 final class AppFlowController: UIViewController {
 

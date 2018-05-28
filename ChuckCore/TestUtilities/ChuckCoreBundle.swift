@@ -12,7 +12,7 @@ private final class _StubForBundleInitialization { }
 
 extension Bundle {
 
-    static let chuckCore: Bundle = {
+    public static let chuckCore: Bundle = {
         return Bundle(for: _StubForBundleInitialization.self)
     }()
 
