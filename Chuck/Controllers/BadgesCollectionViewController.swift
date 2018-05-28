@@ -60,8 +60,8 @@ class BadgesCollectionViewController: UIViewController {
         installCollectionView()
     }
 
-    private lazy var flowLayout: UICollectionViewFlowLayout = {
-        let flow = UICollectionViewFlowLayout()
+    private lazy var flowLayout: BadgeFlowLayout = {
+        let flow = BadgeFlowLayout()
 
         flow.estimatedItemSize = CGSize(width: 112, height: 24)
         flow.minimumLineSpacing = Metrics.padding / 2

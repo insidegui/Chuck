@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import ChuckCore
+import os.log
 
 protocol SearchViewControllerDelegate: class {
     func searchViewControllerWantsToBeDismissed(_ controller: SearchViewController)
@@ -18,6 +19,8 @@ protocol SearchViewControllerDelegate: class {
 }
 
 final class SearchViewController: UIViewController {
+
+    private let log = OSLog(subsystem: "Chuck", category: "SearchViewController")
 
     weak var delegate: SearchViewControllerDelegate?
 
@@ -159,6 +162,14 @@ final class SearchViewController: UIViewController {
         syncEngine.fetchRecentSearches(with: 16).bind(to: suggestionsController.recents).disposed(by: disposeBag)
     }
 
+    private func saveSearchToRecents(with term: String) {
+        do {
+            try syncEngine.registerSearchHistory(for: term)
+        } catch {
+            os_log("Failed to register recent search: %{public}@", log: self.log, type: .error, String(describing: error))
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -185,6 +196,8 @@ extension SearchViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let term = searchBar.text, term.count > 3 else { return }
+
+        saveSearchToRecents(with: term)
 
         delegate?.searchViewController(self, didSearchForTerm: term)
     }
