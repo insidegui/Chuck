@@ -40,6 +40,14 @@ final class AppFlowController: UIViewController {
         return controller
     }()
 
+    private lazy var searchController: SearchViewController = {
+        let controller = SearchViewController()
+
+        controller.delegate = self
+
+        return controller
+    }()
+
     private lazy var state = Variable<ListState>(.empty)
 
     private lazy var mainNavigationController: UINavigationController = {
@@ -123,7 +131,7 @@ final class AppFlowController: UIViewController {
     // MARK: - Actions
 
     func presentSearch(interactive: Bool = false) {
-
+        present(searchController, animated: true, completion: nil)
     }
 
     func shareJoke(with viewModel: JokeViewModel) {
@@ -194,6 +202,14 @@ extension AppFlowController: EmptyViewControllerDelegate {
 
     func emptyViewControllerDidSelectSearch(_ controller: EmptyViewController) {
         presentSearch()
+    }
+
+}
+
+extension AppFlowController: SearchViewControllerDelegate {
+
+    func searchViewControllerWantsToBeDismissed(_ controller: SearchViewController) {
+        dismiss(animated: true, completion: nil)
     }
 
 }
