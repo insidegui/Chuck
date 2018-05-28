@@ -18,4 +18,6 @@ struct Metrics {
     static let padding: CGFloat = 16
     static let largeButtonWidth: CGFloat = 317
     static let largeButtonHeight: CGFloat = 47
+    static let searchBarRadius: CGFloat = 10
+    static let searchBarHeight: CGFloat = 36
 }

@@ -14,6 +14,7 @@ import ChuckCore
 
 protocol SearchViewControllerDelegate: class {
     func searchViewControllerWantsToBeDismissed(_ controller: SearchViewController)
+    func searchViewController(_ controller: SearchViewController, didSearchForTerm term: String)
 }
 
 final class SearchViewController: UIViewController {
@@ -51,6 +52,28 @@ final class SearchViewController: UIViewController {
         return vibrancy
     }()
 
+    private func makeSearchBarBackground() -> UIImage {
+        let width = view.bounds.size.width + Metrics.padding * 2
+
+        let rect = CGRect(x: 0, y: 0, width: width, height: Metrics.searchBarHeight)
+
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+
+        guard let ctx = UIGraphicsGetCurrentContext() else { return UIImage() }
+
+        UIBezierPath(roundedRect: rect, cornerRadius: Metrics.searchBarRadius).addClip()
+
+        ctx.setFillColor(UIColor.white.withAlphaComponent(0.7).cgColor)
+
+        ctx.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return image ?? UIImage()
+    }
+
     private lazy var searchBar: UISearchBar = {
         let bar = UISearchBar()
 
@@ -58,6 +81,18 @@ final class SearchViewController: UIViewController {
         bar.placeholder = "Search for Facts"
         bar.barStyle = .black
         bar.keyboardAppearance = .dark
+        bar.backgroundImage = UIImage()
+
+        bar.setSearchFieldBackgroundImage(makeSearchBarBackground(), for: .normal)
+
+        if let field = bar.value(forKey: "searchField") as? UITextField,
+            let placeholderLabel = field.value(forKey: "placeholderLabel") as? UILabel
+        {
+            placeholderLabel.font = UIFont.systemFont(ofSize: 16)
+            placeholderLabel.textColor = .black
+        }
+
+        bar.searchTextPositionAdjustment = UIOffset(horizontal: Metrics.padding, vertical: 0)
 
         return bar
     }()
@@ -85,6 +120,21 @@ final class SearchViewController: UIViewController {
         searchBar.topAnchor.constraint(equalTo: vibrancyView.contentView.topAnchor, constant: Metrics.extraPadding * 2).isActive = true
         searchBar.leadingAnchor.constraint(equalTo: vibrancyView.contentView.leadingAnchor).isActive = true
         searchBar.trailingAnchor.constraint(equalTo: vibrancyView.contentView.trailingAnchor).isActive = true
+
+        bindSearchBar()
+    }
+
+    private let disposeBag = DisposeBag()
+
+    private func bindSearchBar() {
+        let signal = searchBar.rx.text.asObservable()
+                         .debounce(0.5, scheduler: MainScheduler.instance)
+                         .filter({ ($0 ?? "").count > 3 })
+
+        signal.subscribe(onNext: { [weak self] term in
+            guard let `self` = self, let term = term else { return }
+            self.delegate?.searchViewController(self, didSearchForTerm: term)
+        }).disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {

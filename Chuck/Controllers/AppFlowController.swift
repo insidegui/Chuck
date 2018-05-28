@@ -212,4 +212,8 @@ extension AppFlowController: SearchViewControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
 
+    func searchViewController(_ controller: SearchViewController, didSearchForTerm term: String) {
+        print("term = \(term)")
+    }
+
 }
