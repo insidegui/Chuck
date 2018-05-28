@@ -127,6 +127,51 @@ final class AppFlowController: UIViewController {
         present(activityController, animated: true, completion: nil)
     }
 
+    func fetchRandomJoke() {
+        prepareNotificationHaptic()
+
+        let randomJokeObservable = syncEngine.randomJoke().map({[$0]}).do(onNext: { [weak self] _ in
+            self?.performSuccessHaptic()
+        })
+
+        bindListState(with: randomJokeObservable)
+    }
+
+    // MARK: - Interaction
+
+    private lazy var impactGenerator: UIImpactFeedbackGenerator = {
+        return UIImpactFeedbackGenerator(style: .medium)
+    }()
+
+    private lazy var notificationGenerator = UINotificationFeedbackGenerator()
+
+    private func prepareNotificationHaptic() {
+        notificationGenerator.prepare()
+    }
+
+    private func performSuccessHaptic() {
+        notificationGenerator.notificationOccurred(.success)
+    }
+
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        guard motion == .motionShake else {
+            super.motionBegan(motion, with: event)
+            return
+        }
+
+        impactGenerator.prepare()
+    }
+
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        guard motion == .motionShake else {
+            super.motionEnded(motion, with: event)
+            return
+        }
+
+        impactGenerator.impactOccurred()
+        fetchRandomJoke()
+    }
+
 }
 
 extension AppFlowController: ListJokesViewControllerDelegate {
