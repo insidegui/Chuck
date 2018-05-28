@@ -12,6 +12,7 @@ extension UIColor {
     static let primaryText: UIColor = .black
     static let badgeBackground: UIColor = .black
     static let badgeText: UIColor = .white
+    static let infoText = UIColor(white: 63.0 / 255.0, alpha: 1.0)
     static let error = UIColor(red: 1.0, green: 150.0 / 255.0, blue: 150.0 / 255.0, alpha: 1.0)
     static let primary = UIColor(red: 0.0, green: 118.0 / 255.0, blue: 1.0, alpha: 1.0)
     static let buttonBackground = UIColor(red: 0.0, green: 106.0 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)

@@ -82,6 +82,7 @@ final class AppFlowController: UIViewController {
             case .empty:
                 self?.showEmptyState()
             case .jokes(let jokes):
+                self?.hideEmptyState()
                 self?.listJokesController.jokes.value = jokes
             }
         }, onError: { [weak self] error in
@@ -92,16 +93,32 @@ final class AppFlowController: UIViewController {
     // MARK: - States
 
     private func showErrorState(with error: Error) {
-
+        hideEmptyState()
     }
 
-    private func showEmptyState() {
+    private lazy var emptyViewController: EmptyViewController = {
+        let controller = EmptyViewController()
 
+        controller.delegate = self
+
+        return controller
+    }()
+
+    private func showEmptyState() {
+        if emptyViewController.view.superview == nil {
+            installChild(emptyViewController)
+        }
+
+        emptyViewController.view.isHidden = false
+    }
+
+    private func hideEmptyState() {
+        emptyViewController.view.isHidden = true
     }
 
     // MARK: - Actions
 
-    func presentSearch() {
+    func presentSearch(interactive: Bool = false) {
 
     }
 
@@ -120,6 +137,14 @@ extension AppFlowController: ListJokesViewControllerDelegate {
 
     func listJokesViewController(_ controller: ListJokesViewController, didSelectShareWithViewModel viewModel: JokeViewModel) {
         shareJoke(with: viewModel)
+    }
+
+}
+
+extension AppFlowController: EmptyViewControllerDelegate {
+
+    func emptyViewControllerDidSelectSearch(_ controller: EmptyViewController) {
+        presentSearch()
     }
 
 }

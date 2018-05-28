@@ -13,6 +13,9 @@ struct Metrics {
     static let extraPadding: CGFloat = 22
     static let headerHeight: CGFloat = 88
     static let badgeCornerRadius: CGFloat = 4
+    static let buttonCornerRadius: CGFloat = 12
     static let cardCornerRadius: CGFloat = 8
     static let padding: CGFloat = 16
+    static let largeButtonWidth: CGFloat = 317
+    static let largeButtonHeight: CGFloat = 47
 }

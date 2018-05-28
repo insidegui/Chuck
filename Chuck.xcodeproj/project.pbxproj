@@ -34,6 +34,7 @@
 		DD71CBF320BB8C8500BB5F47 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBF220BB8C8500BB5F47 /* Colors.swift */; };
 		DD71CBF520BB943600BB5F47 /* JokeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBF420BB943600BB5F47 /* JokeTableViewCell.swift */; };
 		DD71CBF720BB9AF400BB5F47 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBF620BB9AF400BB5F47 /* BadgeView.swift */; };
+		DD71CBF920BBA9BB00BB5F47 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBF820BBA9BB00BB5F47 /* EmptyViewController.swift */; };
 		DDDF808720BB074E007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
 		DDDF808920BB074E007284F8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
@@ -159,6 +160,7 @@
 		DD71CBF220BB8C8500BB5F47 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DD71CBF420BB943600BB5F47 /* JokeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeTableViewCell.swift; sourceTree = "<group>"; };
 		DD71CBF620BB9AF400BB5F47 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		DD71CBF820BBA9BB00BB5F47 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		DDDF808320BB074E007284F8 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		DDDF808420BB074E007284F8 /* RxCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCoreData.framework; path = Carthage/Build/iOS/RxCoreData.framework; sourceTree = "<group>"; };
 		DDDF808520BB074E007284F8 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				DD28261620B4C05300627F05 /* Extensions */,
 				DD2825E420B4BF3B00627F05 /* AppFlowController.swift */,
 				DD28261420B4C03400627F05 /* ListJokesViewController.swift */,
+				DD71CBF820BBA9BB00BB5F47 /* EmptyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 			files = (
 				DD28261520B4C03400627F05 /* ListJokesViewController.swift in Sources */,
 				DD2825E520B4BF3B00627F05 /* AppFlowController.swift in Sources */,
+				DD71CBF920BBA9BB00BB5F47 /* EmptyViewController.swift in Sources */,
 				DD71CBEF20BB8C0500BB5F47 /* Metrics.swift in Sources */,
 				DD71CBF320BB8C8500BB5F47 /* Colors.swift in Sources */,
 				DD2825E320B4BF3B00627F05 /* AppDelegate.swift in Sources */,
