@@ -177,22 +177,6 @@ final class SearchViewController: UIViewController {
         bindSearchSuggestions()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        perform(#selector(showKeyboard), with: nil, afterDelay: 0.1)
-    }
-
-    @objc private func showKeyboard() {
-        searchBar.becomeFirstResponder()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        searchBar.resignFirstResponder()
-    }
-
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -208,6 +192,7 @@ final class SearchViewController: UIViewController {
         searchBar.alpha = 0
         suggestionsController.view.alpha = 0
         vibrancyView.layer.transform = CATransform3DMakeTranslation(0, -100, 0)
+        view.endEditing(true)
     }
 
     func configureWithPresentedState() {
@@ -227,6 +212,14 @@ extension SearchViewController: UISearchBarDelegate {
         saveSearchToRecents(with: term)
 
         delegate?.searchViewController(self, didSearchForTerm: term)
+    }
+
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
+    }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
     }
 
 }
