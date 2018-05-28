@@ -11,6 +11,8 @@ import ChuckCore
 
 class JokeTableViewCell: UITableViewCell {
 
+    var didSelectShare: (() -> Void)?
+
     var viewModel: JokeViewModel? {
         didSet {
             update()
@@ -68,6 +70,7 @@ class JokeTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.accessibilityLabel = "Share"
         button.setImage(#imageLiteral(resourceName: "share"), for: .normal)
+        button.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
 
         return button
     }()
@@ -108,23 +111,32 @@ class JokeTableViewCell: UITableViewCell {
 
     // MARK: - Interaction animation
 
+    private var isFingerDown = false
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
 
+        isFingerDown = true
         contract()
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
 
+        isFingerDown = false
         expand()
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
 
+        isFingerDown = false
         expand()
     }
+
+    private lazy var feedbackGenerator: UIImpactFeedbackGenerator = {
+        return UIImpactFeedbackGenerator(style: .medium)
+    }()
 
     private let animationOptions: UIViewAnimationOptions = [
         .beginFromCurrentState,
@@ -133,10 +145,14 @@ class JokeTableViewCell: UITableViewCell {
     ]
 
     private func contract() {
-        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1.2, options: animationOptions, animations: {
+        feedbackGenerator.prepare()
+
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1.2, options: animationOptions, animations: {
             self.shadowView.layer.transform = CATransform3DMakeScale(0.92, 0.92, 1)
             self.shareButton.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1)
-        }, completion: nil)
+        }, completion: { _ in
+            self.performHapticsAndCallActionIfAppropriate()
+        })
     }
 
     private func expand() {
@@ -144,6 +160,20 @@ class JokeTableViewCell: UITableViewCell {
             self.shadowView.layer.transform = CATransform3DIdentity
             self.shareButton.layer.transform = CATransform3DIdentity
         }, completion: nil)
+    }
+
+    // MARK: - Actions
+
+    private func performHapticsAndCallActionIfAppropriate() {
+        guard isFingerDown else { return }
+
+        feedbackGenerator.impactOccurred()
+        didSelectShare?()
+    }
+
+    @objc private func didTapShareButton() {
+        feedbackGenerator.impactOccurred()
+        didSelectShare?()
     }
 
 }
