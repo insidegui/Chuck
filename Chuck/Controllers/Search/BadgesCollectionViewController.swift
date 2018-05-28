@@ -46,10 +46,8 @@ class BadgesCollectionViewController: UIViewController {
 
     lazy var badgeTitles = Variable<[String]>([])
 
-    private lazy var customIntrinsicsView = CustomIntrinsicsView()
-
     override func loadView() {
-        view = customIntrinsicsView
+        view = UIView()
         view.backgroundColor = .clear
         view.isOpaque = false
     }
@@ -70,10 +68,10 @@ class BadgesCollectionViewController: UIViewController {
         return flow
     }()
 
-    private lazy var collectionView: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    private lazy var collectionView: SelfSizingCollectionView = {
+        let collection = SelfSizingCollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
-        collection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collection.translatesAutoresizingMaskIntoConstraints = false
         collection.delegate = self
         collection.setContentCompressionResistancePriority(.required, for: .vertical)
 
@@ -81,8 +79,11 @@ class BadgesCollectionViewController: UIViewController {
     }()
 
     private func installCollectionView() {
-        collectionView.frame = view.bounds
         view.addSubview(collectionView)
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
         bindCollectionView()
     }
@@ -101,20 +102,7 @@ class BadgesCollectionViewController: UIViewController {
         }, configureSupplementaryView: { _, _, _, _ in fatalError() })
 
         let sections = badgeTitles.asObservable().map({ [BadgeSectionModel(items: $0)] })
-        sections.do(onNext: { [weak self] _ in
-            self?.updateIntrinsicHeight()
-        }).bind(to: collectionView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
-    }
-
-    private func updateIntrinsicHeight() {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(doUpdateIntrinsicHeight), object: nil)
-        perform(#selector(doUpdateIntrinsicHeight), with: nil, afterDelay: 0.05)
-    }
-
-    @objc private func doUpdateIntrinsicHeight() {
-        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
-        customIntrinsicsView.customIntrinsicSize = CGSize(width: UIViewNoIntrinsicMetric, height: height)
-        print("height = \(height)")
+        sections.bind(to: collectionView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
     }
 
 }

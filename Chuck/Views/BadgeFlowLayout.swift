@@ -10,6 +10,25 @@ import UIKit
 
 final class BadgeFlowLayout: UICollectionViewFlowLayout {
 
+    var didInvalidateLayout: ((CGSize) -> Void)?
+
+    override func invalidateLayout() {
+        super.invalidateLayout()
+
+        guard collectionViewContentSize.height > 0 else { return }
+
+        noteLayoutInvalidation()
+    }
+
+    private func noteLayoutInvalidation() {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(doNoteLayoutInvalidation), object: nil)
+        perform(#selector(doNoteLayoutInvalidation), with: nil, afterDelay: 0)
+    }
+
+    @objc private func doNoteLayoutInvalidation() {
+        didInvalidateLayout?(collectionViewContentSize)
+    }
+
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let attributes = super.layoutAttributesForElements(in: rect)
 
