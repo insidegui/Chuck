@@ -6,7 +6,7 @@ Browse [Chuck Norris Facts](https://api.chucknorris.io/) on your iPhone.
 
 ![search](./Screenshots/2-search.png)
 
-### All facts are saved to your library and every time you launch the app, a different selection of random facts shows up, even when you're not on-line.
+### All facts are saved to your library and every time you launch the app, a different selection of random facts shows up, even when you're not on-line. You can also shake your device to fetch a fresh random fact from the cloud.
 
 ![search](./Screenshots/1-home.png)
 
