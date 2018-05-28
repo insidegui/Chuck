@@ -104,6 +104,7 @@ final class ListJokesViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
 
+        table.uiTestingLabel = .jokesList
         table.translatesAutoresizingMaskIntoConstraints = false
         table.separatorColor = .clear
         table.estimatedRowHeight = 172

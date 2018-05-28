@@ -11,7 +11,7 @@ import Foundation
 public final class TestArguments {
 
     public static var isRunningUITests: Bool {
-        return UserDefaults.standard.bool(forKey: #function)
+        return ProcessInfo.processInfo.arguments.contains("--uitests")
     }
 
 }

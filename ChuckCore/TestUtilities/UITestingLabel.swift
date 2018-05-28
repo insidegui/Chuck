@@ -10,6 +10,7 @@ import UIKit
 
 public enum UITestingLabel: String {
     case jokeCell
+    case jokesList
     case loadingIndicator
     case searchButton
     case emptyView

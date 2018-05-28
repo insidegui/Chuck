@@ -20,7 +20,7 @@ class ChuckUITests: XCTestCase {
 
         app = XCUIApplication()
 
-        app.launchArguments.append("-isRunningUITests YES")
+        app.launchArguments.append("--uitests")
 
         app.launch()
     }
@@ -36,6 +36,30 @@ class ChuckUITests: XCTestCase {
     func testTappingSearchButtonShowsSearchUI() {
         app.buttons[UITestingLabel.searchButton.rawValue].tap()
         XCTAssertTrue(app.isShowingSearch)
+    }
+
+    func testSearchWithResultsShowsResultsOnList() {
+        app.buttons[UITestingLabel.searchButton.rawValue].tap()
+
+        let searchBar = app.otherElements[UITestingLabel.searchBar.rawValue]
+        searchBar.tap()
+        searchBar.typeText("iPhone\n")
+
+        let element = app.otherElements[UITestingLabel.emptyView.rawValue]
+        let predicate = NSPredicate(format: "isHittable == 0")
+
+        expectation(for: predicate, evaluatedWith: element, handler: nil)
+        waitForExpectations(timeout: 2, handler: nil)
+    }
+
+    func testSearchWithNoResultsShowsEmptyView() {
+        app.buttons[UITestingLabel.searchButton.rawValue].tap()
+
+        let searchBar = app.otherElements[UITestingLabel.searchBar.rawValue]
+        searchBar.tap()
+        searchBar.typeText("empty\n")
+
+        XCTAssertTrue(app.otherElements[UITestingLabel.emptyView.rawValue].isHittable)
     }
     
 }
