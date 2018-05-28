@@ -45,6 +45,8 @@ final class ListJokesViewController: UIViewController {
 
     weak var delegate: ListJokesViewControllerDelegate?
 
+    lazy var isLoading = Variable<Bool>(false)
+
     lazy var jokes = Variable<[JokeViewModel]>([])
 
     private let disposeBag = DisposeBag()
@@ -69,6 +71,15 @@ final class ListJokesViewController: UIViewController {
         button.tintColor = .primary
 
         return button
+    }()
+
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+
+        return indicator
     }()
 
     private var effectiveHeaderHeight: CGFloat {
@@ -108,6 +119,7 @@ final class ListJokesViewController: UIViewController {
         installHeader()
         installTitleLabel()
         installSearchButton()
+        installActivityIndicator()
     }
 
     private func installTitleLabel() {
@@ -122,8 +134,21 @@ final class ListJokesViewController: UIViewController {
         searchButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
     }
 
+    private func installActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: searchButton.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: searchButton.centerYAnchor).isActive = true
+
+        bindActivityIndicator()
+    }
+
     @objc private func searchTapped() {
         delegate?.listJokesViewControllerDidSelectSearch(self)
+    }
+
+    private func bindActivityIndicator() {
+        isLoading.asObservable().bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
+        isLoading.asObservable().bind(to: searchButton.rx.isHidden).disposed(by: disposeBag)
     }
 
     // MARK: - Header

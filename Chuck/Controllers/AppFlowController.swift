@@ -71,7 +71,11 @@ final class AppFlowController: UIViewController {
             } else {
                 return ListState.empty
             }
-        }
+        }.do(onNext: { [weak self] _ in
+            self?.listJokesController.isLoading.value = false
+        }, onSubscribed: { [weak self] in
+            self?.listJokesController.isLoading.value = true
+        })
 
         // Binds the current state observable to the state variable of the flow controller for others to observe
         stateObservable.bind(to: state).disposed(by: listStateDisposeBag)
