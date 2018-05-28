@@ -152,13 +152,12 @@ final class SearchViewController: UIViewController {
 
         suggestionsController.didMove(toParentViewController: self)
 
-        bindSuggestionsController()
+        bindRecents()
     }
 
     private let disposeBag = DisposeBag()
 
-    private func bindSuggestionsController() {
-        syncEngine.fetchRandomCategories().bind(to: suggestionsController.categories).disposed(by: disposeBag)
+    private func bindRecents() {
         syncEngine.fetchRecentSearches(with: 16).bind(to: suggestionsController.recents).disposed(by: disposeBag)
     }
 
@@ -168,6 +167,21 @@ final class SearchViewController: UIViewController {
         } catch {
             os_log("Failed to register recent search: %{public}@", log: self.log, type: .error, String(describing: error))
         }
+    }
+
+    private var randomDisposeBag = DisposeBag()
+
+    private func bindRandomCategories() {
+        randomDisposeBag = DisposeBag()
+
+        syncEngine.fetchRandomCategories().bind(to: suggestionsController.categories).disposed(by: randomDisposeBag)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        searchBar.text = nil
+        bindRandomCategories()
     }
 
     override func viewDidAppear(_ animated: Bool) {
