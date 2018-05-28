@@ -63,10 +63,14 @@ class EmptyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.isOpaque = false
+        view.backgroundColor = .clear
+
         view.uiTestingLabel = .emptyView
 
         view.addSubview(stackView)
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Metrics.extraPadding).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Metrics.extraPadding).isActive = true
     }

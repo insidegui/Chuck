@@ -13,7 +13,7 @@ public enum UITestingLabel: String {
     case loadingIndicator
     case searchButton
     case emptyView
-    case searchViewController
+    case searchView
     case searchBar
     case categoryBadge
     case recentSearchBadge

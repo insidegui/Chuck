@@ -46,6 +46,7 @@
 		DD71CC1620BCA82000BB5F47 /* ChuckAPIEnvironment+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80B120BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift */; };
 		DD71CC1820BCAED000BB5F47 /* TestArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC1720BCAED000BB5F47 /* TestArguments.swift */; };
 		DD71CC1A20BCB3FF00BB5F47 /* UITestingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC1920BCB3FF00BB5F47 /* UITestingLabel.swift */; };
+		DD71CC1D20BCB8E300BB5F47 /* ChuckCore.framework in Embed ChuckCore */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDDF808720BB074E007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
 		DDDF808920BB074E007284F8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
@@ -131,6 +132,17 @@
 				DD1A579820B4D74C00F52C9E /* ChuckCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD71CC1C20BCB8D400BB5F47 /* Embed ChuckCore */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DD71CC1D20BCB8E300BB5F47 /* ChuckCore.framework in Embed ChuckCore */,
+			);
+			name = "Embed ChuckCore";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -660,6 +672,7 @@
 				DD2825FA20B4BF3C00627F05 /* Sources */,
 				DD2825FB20B4BF3C00627F05 /* Frameworks */,
 				DD2825FC20B4BF3C00627F05 /* Resources */,
+				DD71CC1C20BCB8D400BB5F47 /* Embed ChuckCore */,
 			);
 			buildRules = (
 			);

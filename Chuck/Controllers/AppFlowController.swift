@@ -130,7 +130,15 @@ final class AppFlowController: UIViewController {
 
     private func showEmptyState() {
         if emptyViewController.view.superview == nil {
-            installChild(emptyViewController)
+            addChildViewController(emptyViewController)
+            emptyViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(emptyViewController.view)
+
+            emptyViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            emptyViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            emptyViewController.view.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
+            emptyViewController.didMove(toParentViewController: self)
         }
 
         emptyViewController.view.isHidden = false

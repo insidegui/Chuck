@@ -119,7 +119,7 @@ final class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        uiTestingLabel = .searchViewController
+        view.uiTestingLabel = .searchView
 
         view.isOpaque = false
         view.backgroundColor = .clear
