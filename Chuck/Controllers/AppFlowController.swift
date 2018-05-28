@@ -18,6 +18,8 @@ final class AppFlowController: UIViewController {
         case jokes([JokeViewModel])
     }
 
+    lazy var isOffline = Variable<Bool>(false)
+
     private let disposeBag = DisposeBag()
 
     let syncEngine: SyncEngine
@@ -97,7 +99,9 @@ final class AppFlowController: UIViewController {
         })
 
         // Binds the current state observable to the state variable of the flow controller for others to observe
-        stateObservable.bind(to: state).disposed(by: listStateDisposeBag)
+        stateObservable.do(onError: { [weak self] error in
+            self?.showErrorState(with: error)
+        }).bind(to: state).disposed(by: listStateDisposeBag)
 
         // Binds the current state to the list controller or shows the empty/error state if necessary
         state.asObservable().subscribe(onNext: { [weak self] currentState in
@@ -116,6 +120,7 @@ final class AppFlowController: UIViewController {
     // MARK: - States
 
     private func showErrorState(with error: Error) {
+        listJokesController.isLoading.value = false
         listJokesController.jokes.value = []
         hideEmptyState()
     }

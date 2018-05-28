@@ -12,15 +12,20 @@ import RxCoreData
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Reachability
 
 public final class SyncEngine {
 
+    public let reconnectionTimeout: TimeInterval = 10.0
+
     public let client: ChuckAPIClient
     public let persistentContainer: NSPersistentContainer
+    public let reachability: Reachability
 
-    public init(client: ChuckAPIClient, persistentContainer: NSPersistentContainer) {
+    public init(client: ChuckAPIClient, persistentContainer: NSPersistentContainer, reachability: Reachability) {
         self.client = client
         self.persistentContainer = persistentContainer
+        self.reachability = reachability
     }
 
     private var moc: NSManagedObjectContext {
@@ -36,7 +41,7 @@ public final class SyncEngine {
     public func syncSearchResults(with term: String) -> Observable<Void> {
         return client.search(with: term).observeOn(MainScheduler.instance).do(onNext: { [unowned self] response in
             try response.result.forEach(self.moc.rx.update)
-        }).map { _ in Void() }
+        }).retryOnConnect(timeout: reconnectionTimeout).map { _ in Void() }
     }
 
     /// Performs a fetch on the database for jokes matching the term specified
@@ -56,7 +61,7 @@ public final class SyncEngine {
     ///
     /// - Returns: An Observable with a random joke fresh from the API
     public func randomJoke() -> Observable<JokeViewModel> {
-        return client.random.observeOn(MainScheduler.instance).do(onNext: { [unowned self] joke in
+        return client.random.retryOnConnect(timeout: reconnectionTimeout).observeOn(MainScheduler.instance).do(onNext: { [unowned self] joke in
             try self.moc.rx.update(joke)
         }).map(JokeViewModel.init)
     }
@@ -67,7 +72,7 @@ public final class SyncEngine {
     /// - Parameter categoryName: the category name to get a random joke for
     /// - Returns: An Observable with a random joke in the specified category fresh from the API
     public func randomJoke(with categoryName: String) -> Observable<JokeViewModel> {
-        return client.random(with: categoryName).observeOn(MainScheduler.instance).do(onNext: { [unowned self] joke in
+        return client.random(with: categoryName).retryOnConnect(timeout: reconnectionTimeout).observeOn(MainScheduler.instance).do(onNext: { [unowned self] joke in
             try self.moc.rx.update(joke)
         }).map(JokeViewModel.init)
     }
@@ -92,7 +97,7 @@ public final class SyncEngine {
     ///
     /// - Returns: An Observable that can be used to check for completion and errors
     public func syncCategories() -> Observable<Void> {
-        return client.categories.observeOn(MainScheduler.instance).do(onNext: { [unowned self] categories in
+        return client.categories.retryOnConnect(timeout: reconnectionTimeout).observeOn(MainScheduler.instance).do(onNext: { [unowned self] categories in
             try categories.forEach(self.moc.rx.update)
         }).map { _ in Void() }
     }

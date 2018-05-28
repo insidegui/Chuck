@@ -47,6 +47,10 @@
 		DD71CC1820BCAED000BB5F47 /* TestArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC1720BCAED000BB5F47 /* TestArguments.swift */; };
 		DD71CC1A20BCB3FF00BB5F47 /* UITestingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC1920BCB3FF00BB5F47 /* UITestingLabel.swift */; };
 		DD71CC1D20BCB8E300BB5F47 /* ChuckCore.framework in Embed ChuckCore */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD71CC2020BCC67A00BB5F47 /* ObservableType+Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC1E20BCC67A00BB5F47 /* ObservableType+Reachability.swift */; };
+		DD71CC2120BCC67A00BB5F47 /* Reachability+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC1F20BCC67A00BB5F47 /* Reachability+Rx.swift */; };
+		DD71CC2320BCC70D00BB5F47 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD71CC2220BCC70D00BB5F47 /* Reachability.framework */; };
+		DD71CC2420BCC72000BB5F47 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD71CC2220BCC70D00BB5F47 /* Reachability.framework */; };
 		DDDF808720BB074E007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
 		DDDF808920BB074E007284F8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
@@ -193,6 +197,9 @@
 		DD71CC0F20BC806E00BB5F47 /* SelfSizingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCollectionView.swift; sourceTree = "<group>"; };
 		DD71CC1720BCAED000BB5F47 /* TestArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestArguments.swift; sourceTree = "<group>"; };
 		DD71CC1920BCB3FF00BB5F47 /* UITestingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingLabel.swift; sourceTree = "<group>"; };
+		DD71CC1E20BCC67A00BB5F47 /* ObservableType+Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Reachability.swift"; sourceTree = "<group>"; };
+		DD71CC1F20BCC67A00BB5F47 /* Reachability+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reachability+Rx.swift"; sourceTree = "<group>"; };
+		DD71CC2220BCC70D00BB5F47 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		DDDF808320BB074E007284F8 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		DDDF808420BB074E007284F8 /* RxCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCoreData.framework; path = Carthage/Build/iOS/RxCoreData.framework; sourceTree = "<group>"; };
 		DDDF808520BB074E007284F8 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -234,6 +241,7 @@
 				DDDF808B20BB078B007284F8 /* RxCoreData.framework in Frameworks */,
 				DDDF808C20BB078B007284F8 /* RxSwift.framework in Frameworks */,
 				DDDF809020BB0851007284F8 /* RxDataSources.framework in Frameworks */,
+				DD71CC2420BCC72000BB5F47 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +266,7 @@
 				DDDF808720BB074E007284F8 /* RxDataSources.framework in Frameworks */,
 				DDDF808920BB074E007284F8 /* RxCocoa.framework in Frameworks */,
 				DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */,
+				DD71CC2320BCC70D00BB5F47 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +505,7 @@
 		DDDF808220BB074D007284F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD71CC2220BCC70D00BB5F47 /* Reachability.framework */,
 				DDDF80A420BB1127007284F8 /* RxBlocking.framework */,
 				DDDF809D20BB0D7B007284F8 /* Differentiator.framework */,
 				DDDF808520BB074E007284F8 /* RxCocoa.framework */,
@@ -571,6 +581,8 @@
 		DDDF80CA20BB4830007284F8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				DD71CC1E20BCC67A00BB5F47 /* ObservableType+Reachability.swift */,
+				DD71CC1F20BCC67A00BB5F47 /* Reachability+Rx.swift */,
 				DDDF80CB20BB483C007284F8 /* Collection+Shuffle.swift */,
 			);
 			path = Util;
@@ -795,6 +807,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -812,6 +825,7 @@
 			files = (
 				DDDF80AC20BB1736007284F8 /* ChuckAPIEndpoint.swift in Sources */,
 				DDDF80C320BB3FF3007284F8 /* RecentSearch.swift in Sources */,
+				DD71CC2120BCC67A00BB5F47 /* Reachability+Rx.swift in Sources */,
 				DDDF80C520BB404C007284F8 /* RecentSearch+Persistence.swift in Sources */,
 				DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */,
 				DD71CC1820BCAED000BB5F47 /* TestArguments.swift in Sources */,
@@ -831,6 +845,7 @@
 				DDDF808F20BB0820007284F8 /* Joke+Persistence.swift in Sources */,
 				DDDF80AA20BB16B8007284F8 /* ChuckAPIClient.swift in Sources */,
 				DDDF809320BB0A53007284F8 /* Model.xcdatamodeld in Sources */,
+				DD71CC2020BCC67A00BB5F47 /* ObservableType+Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

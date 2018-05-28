@@ -10,6 +10,7 @@ import UIKit
 import ChuckCore
 import CoreData
 import RxSwift
+import Reachability
 import os.log
 
 extension Notification.Name {
@@ -43,21 +44,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return persistentContainer
     }()
 
+    private lazy var reachability: Reachability = {
+        guard let instance = Reachability(hostname: "api.chucknorris.io") else {
+            fatalError("Unable to instantiate reachability instance")
+        }
+
+        return instance
+    }()
+
     private lazy var syncEngine: SyncEngine = {
         let env: ChuckAPIEnvironment = TestArguments.isRunningUITests ? .test : .production
+
         let client = ChuckAPIClient(environment: env)
-        return SyncEngine(client: client, persistentContainer: persistentContainer)
+
+        return SyncEngine(
+            client: client,
+            persistentContainer: persistentContainer,
+            reachability: reachability
+        )
+    }()
+
+    private lazy var flowController: AppFlowController = {
+        return AppFlowController(syncEngine: syncEngine)
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         resetStorageIfRunningUITests()
 
         window = UIWindow()
-        window?.rootViewController = AppFlowController(syncEngine: syncEngine)
+        window?.rootViewController = flowController
 
         window?.makeKeyAndVisible()
 
         syncCategories()
+
+        // Sets isOffline to true in the flow controller whenever reachability is not connected
+        reachability.rx.isReachable.map({ !$0 }).bind(to: flowController.isOffline).disposed(by: disposeBag)
 
         return true
     }
