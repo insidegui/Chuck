@@ -7,12 +7,11 @@
 //
 
 import Foundation
-@testable import ChuckCore
 
 extension ChuckAPIEnvironment {
 
     /// The testing environment uses assets in the bundle's resources path to mimick API responses
-    static let test: ChuckAPIEnvironment = {
+    public static let test: ChuckAPIEnvironment = {
         let resolver: ChuckAPIEnvironment.EndpointResolver = { environment, path, query in
             var mockFilename: String?
 
@@ -38,7 +37,7 @@ extension ChuckAPIEnvironment {
             return URLRequest(url: url)
         }
 
-        guard let baseURL = Bundle.testBundle.resourceURL else {
+        guard let baseURL = Bundle.chuckCore.resourceURL else {
             fatalError("Failed to get resource URL for ChuckCoreTests bundle which is required for the test to run")
         }
 

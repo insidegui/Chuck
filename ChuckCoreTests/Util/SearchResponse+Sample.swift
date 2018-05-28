@@ -13,7 +13,7 @@ import XCTest
 extension SearchResponse {
 
     static func sample() throws -> SearchResponse {
-        let data = try Bundle.testBundle.fetch(resource: .search)
+        let data = try Bundle.chuckCore.fetch(resource: .search)
 
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

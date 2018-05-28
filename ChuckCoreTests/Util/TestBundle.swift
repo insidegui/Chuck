@@ -33,12 +33,8 @@ enum TestResourceError: Error {
 
 extension Bundle {
 
-    static var testBundle: Bundle {
-        return Bundle(for: TestBundleInitializer.self)
-    }
-
     func fetch(resource: TestResource) throws -> Data {
-        guard let url = self.url(forResource: resource.rawValue, withExtension: "json") else {
+        guard let url = Bundle.chuckCore.url(forResource: resource.rawValue, withExtension: "json") else {
             throw TestResourceError.notFound(resource.rawValue)
         }
 

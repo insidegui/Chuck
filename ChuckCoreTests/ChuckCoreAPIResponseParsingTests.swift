@@ -14,11 +14,11 @@ class ChuckCoreAPIResponseParsingTests: XCTestCase {
     /// Make sure all required resources are available for the tests, this test will fail if any
     /// of the required resources is not available in the test bundle
     func testBundleIntegrity() throws {
-        try TestResource.all.forEach { _ = try Bundle.testBundle.fetch(resource: $0) }
+        try TestResource.all.forEach { _ = try Bundle.chuckCore.fetch(resource: $0) }
     }
 
     func testSearchResponseWithResultsParsing() throws {
-        let data = try Bundle.testBundle.fetch(resource: .search)
+        let data = try Bundle.chuckCore.fetch(resource: .search)
 
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -36,7 +36,7 @@ class ChuckCoreAPIResponseParsingTests: XCTestCase {
     }
 
     func testEmptySearchResultsParsing() throws {
-        let data = try Bundle.testBundle.fetch(resource: .searchEmpty)
+        let data = try Bundle.chuckCore.fetch(resource: .searchEmpty)
 
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -47,7 +47,7 @@ class ChuckCoreAPIResponseParsingTests: XCTestCase {
     }
 
     func testCategoriesParsing() throws {
-        let data = try Bundle.testBundle.fetch(resource: .categories)
+        let data = try Bundle.chuckCore.fetch(resource: .categories)
 
         let categories = try JSONDecoder().decode([String].self, from: data)
         XCTAssert(categories.count == 16)
@@ -56,7 +56,7 @@ class ChuckCoreAPIResponseParsingTests: XCTestCase {
     }
 
     func testRandomResponseParsing() throws {
-        let data = try Bundle.testBundle.fetch(resource: .random)
+        let data = try Bundle.chuckCore.fetch(resource: .random)
 
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

@@ -13,7 +13,7 @@ import XCTest
 extension Joke {
 
     static func sample() throws -> Joke {
-        let data = try Bundle.testBundle.fetch(resource: .randomWithCategory)
+        let data = try Bundle.chuckCore.fetch(resource: .randomWithCategory)
 
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

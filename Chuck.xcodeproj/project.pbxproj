@@ -12,13 +12,8 @@
 		DD1A579420B4D74C00F52C9E /* ChuckCore.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1A578420B4D74C00F52C9E /* ChuckCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1A579720B4D74C00F52C9E /* ChuckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; };
 		DD1A579820B4D74C00F52C9E /* ChuckCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD1A57A020B4D78500F52C9E /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577520B4D71E00F52C9E /* categories.json */; };
-		DD1A57A120B4D78500F52C9E /* randomWithCategory.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577720B4D71E00F52C9E /* randomWithCategory.json */; };
-		DD1A57A220B4D78500F52C9E /* random.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577620B4D71E00F52C9E /* random.json */; };
-		DD1A57A320B4D78500F52C9E /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577820B4D71E00F52C9E /* search.json */; };
 		DD1A57A620B4D7AB00F52C9E /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57A520B4D7AB00F52C9E /* Joke.swift */; };
 		DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57A820B4D82400F52C9E /* SearchResponse.swift */; };
-		DD1A57AB20B4D87F00F52C9E /* searchEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A57AA20B4D87E00F52C9E /* searchEmpty.json */; };
 		DD1A57AE20B4D8DA00F52C9E /* TestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57AD20B4D8DA00F52C9E /* TestBundle.swift */; };
 		DD1A57B020B4DD4C00F52C9E /* DecodingErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A57AF20B4DD4C00F52C9E /* DecodingErrorExtension.swift */; };
 		DD2825E320B4BF3B00627F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825E220B4BF3B00627F05 /* AppDelegate.swift */; };
@@ -43,6 +38,12 @@
 		DD71CC0C20BBCD3600BB5F47 /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC0B20BBCD3600BB5F47 /* SearchTransition.swift */; };
 		DD71CC0E20BBD07D00BB5F47 /* SearchPresentationDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC0D20BBD07D00BB5F47 /* SearchPresentationDriver.swift */; };
 		DD71CC1020BC806E00BB5F47 /* SelfSizingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC0F20BC806E00BB5F47 /* SelfSizingCollectionView.swift */; };
+		DD71CC1120BCA81000BB5F47 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577520B4D71E00F52C9E /* categories.json */; };
+		DD71CC1220BCA81000BB5F47 /* randomWithCategory.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577720B4D71E00F52C9E /* randomWithCategory.json */; };
+		DD71CC1320BCA81000BB5F47 /* random.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577620B4D71E00F52C9E /* random.json */; };
+		DD71CC1420BCA81000BB5F47 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577820B4D71E00F52C9E /* search.json */; };
+		DD71CC1520BCA81000BB5F47 /* searchEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A57AA20B4D87E00F52C9E /* searchEmpty.json */; };
+		DD71CC1620BCA82000BB5F47 /* ChuckAPIEnvironment+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80B120BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift */; };
 		DDDF808720BB074E007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
 		DDDF808920BB074E007284F8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
@@ -66,7 +67,6 @@
 		DDDF80AC20BB1736007284F8 /* ChuckAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AB20BB1736007284F8 /* ChuckAPIEndpoint.swift */; };
 		DDDF80AE20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AD20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift */; };
 		DDDF80B020BB2507007284F8 /* ChuckCoreAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80AF20BB2507007284F8 /* ChuckCoreAPIClientTests.swift */; };
-		DDDF80B220BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80B120BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift */; };
 		DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80B520BB2856007284F8 /* ChuckAPIEnvironment.swift */; };
 		DDDF80BC20BB30FD007284F8 /* JokeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80BB20BB30FD007284F8 /* JokeViewModel.swift */; };
 		DDDF80BE20BB39D4007284F8 /* ChuckCoreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80BD20BB39D4007284F8 /* ChuckCoreViewModelTests.swift */; };
@@ -292,7 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				DD1A57AC20B4D8BE00F52C9E /* Util */,
-				DD1A577420B4D5B800F52C9E /* Resources */,
 				DD1A579120B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift */,
 				DDDF809820BB0CE8007284F8 /* ChuckCorePersistenceTests.swift */,
 				DDDF80AD20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift */,
@@ -330,7 +329,6 @@
 				DD1A57AF20B4DD4C00F52C9E /* DecodingErrorExtension.swift */,
 				DDDF80A220BB1072007284F8 /* Joke+Sample.swift */,
 				DDDF80BF20BB3E59007284F8 /* SearchResponse+Sample.swift */,
-				DDDF80B120BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift */,
 				DDDF80CF20BB49E9007284F8 /* NSPersistentContainer+Test.swift */,
 			);
 			path = Util;
@@ -507,7 +505,9 @@
 		DDDF809F20BB0EA4007284F8 /* TestUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				DD1A577420B4D5B800F52C9E /* Resources */,
 				DDDF80A020BB0EB2007284F8 /* ChuckCoreBundle.swift */,
+				DDDF80B120BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift */,
 			);
 			path = TestUtilities;
 			sourceTree = "<group>";
@@ -723,6 +723,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD71CC1520BCA81000BB5F47 /* searchEmpty.json in Resources */,
+				DD71CC1320BCA81000BB5F47 /* random.json in Resources */,
+				DD71CC1420BCA81000BB5F47 /* search.json in Resources */,
+				DD71CC1220BCA81000BB5F47 /* randomWithCategory.json in Resources */,
+				DD71CC1120BCA81000BB5F47 /* categories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,11 +735,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1A57A220B4D78500F52C9E /* random.json in Resources */,
-				DD1A57A320B4D78500F52C9E /* search.json in Resources */,
-				DD1A57A120B4D78500F52C9E /* randomWithCategory.json in Resources */,
-				DD1A57A020B4D78500F52C9E /* categories.json in Resources */,
-				DD1A57AB20B4D87F00F52C9E /* searchEmpty.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +796,7 @@
 				DDDF80C520BB404C007284F8 /* RecentSearch+Persistence.swift in Sources */,
 				DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */,
 				DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */,
+				DD71CC1620BCA82000BB5F47 /* ChuckAPIEnvironment+Test.swift in Sources */,
 				DDDF80D220BB51F2007284F8 /* RecentSearchViewModel.swift in Sources */,
 				DDDF809520BB0AB7007284F8 /* Category.swift in Sources */,
 				DDDF80A120BB0EB2007284F8 /* ChuckCoreBundle.swift in Sources */,
@@ -819,7 +820,6 @@
 				DDDF80CE20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift in Sources */,
 				DDDF80B020BB2507007284F8 /* ChuckCoreAPIClientTests.swift in Sources */,
 				DD1A579220B4D74C00F52C9E /* ChuckCoreAPIResponseParsingTests.swift in Sources */,
-				DDDF80B220BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift in Sources */,
 				DDDF80AE20BB1CA3007284F8 /* ChuckCoreAPIEndpointTests.swift in Sources */,
 				DDDF80C020BB3E59007284F8 /* SearchResponse+Sample.swift in Sources */,
 				DDDF809920BB0CE8007284F8 /* ChuckCorePersistenceTests.swift in Sources */,
