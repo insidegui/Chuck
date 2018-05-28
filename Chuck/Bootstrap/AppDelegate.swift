@@ -44,11 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     private lazy var syncEngine: SyncEngine = {
-        let client = ChuckAPIClient(environment: .production)
+        let env: ChuckAPIEnvironment = TestArguments.isRunningUITests ? .test : .production
+        let client = ChuckAPIClient(environment: env)
         return SyncEngine(client: client, persistentContainer: persistentContainer)
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        resetStorageIfRunningUITests()
+
         window = UIWindow()
         window?.rootViewController = AppFlowController(syncEngine: syncEngine)
 
@@ -78,6 +81,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             os_log("Synced categories", log: self.log, type: .info)
         }).disposed(by: disposeBag)
+    }
+
+    private func resetStorageIfRunningUITests() {
+        guard TestArguments.isRunningUITests else { return }
+        guard let bundleId = Bundle.main.bundleIdentifier else { return }
+
+        // Clear user defaults
+        UserDefaults.standard.removePersistentDomain(forName: bundleId)
+
+        // Clear storage
+        do {
+            try syncEngine.clearDatabase()
+        } catch {
+            fatalError(String(describing: error))
+        }
     }
 
 }

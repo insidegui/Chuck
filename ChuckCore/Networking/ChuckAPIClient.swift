@@ -41,7 +41,7 @@ public final class ChuckAPIClient {
         do {
             let data = try Data(contentsOf: url)
 
-            return Observable.just(data)
+            return Observable.just(data).delay(1, scheduler: MainScheduler.instance)
         } catch {
             return Observable.error(error)
         }

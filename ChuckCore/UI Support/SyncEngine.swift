@@ -136,4 +136,16 @@ public final class SyncEngine {
         }
     }
 
+    /// MARK: - Testing support
+
+    public func clearDatabase() throws {
+        let entityNames = ["Joke", "Category", "RecentSearch"]
+
+        try entityNames.forEach { name in
+            let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+            let request = NSBatchDeleteRequest(fetchRequest: fetch)
+            try moc.execute(request)
+        }
+    }
+
 }

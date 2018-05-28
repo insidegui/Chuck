@@ -44,6 +44,7 @@
 		DD71CC1420BCA81000BB5F47 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A577820B4D71E00F52C9E /* search.json */; };
 		DD71CC1520BCA81000BB5F47 /* searchEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A57AA20B4D87E00F52C9E /* searchEmpty.json */; };
 		DD71CC1620BCA82000BB5F47 /* ChuckAPIEnvironment+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80B120BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift */; };
+		DD71CC1820BCAED000BB5F47 /* TestArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CC1720BCAED000BB5F47 /* TestArguments.swift */; };
 		DDDF808720BB074E007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
 		DDDF808920BB074E007284F8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
@@ -177,6 +178,7 @@
 		DD71CC0B20BBCD3600BB5F47 /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
 		DD71CC0D20BBD07D00BB5F47 /* SearchPresentationDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresentationDriver.swift; sourceTree = "<group>"; };
 		DD71CC0F20BC806E00BB5F47 /* SelfSizingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCollectionView.swift; sourceTree = "<group>"; };
+		DD71CC1720BCAED000BB5F47 /* TestArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestArguments.swift; sourceTree = "<group>"; };
 		DDDF808320BB074E007284F8 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		DDDF808420BB074E007284F8 /* RxCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCoreData.framework; path = Carthage/Build/iOS/RxCoreData.framework; sourceTree = "<group>"; };
 		DDDF808520BB074E007284F8 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 				DD1A577420B4D5B800F52C9E /* Resources */,
 				DDDF80A020BB0EB2007284F8 /* ChuckCoreBundle.swift */,
 				DDDF80B120BB26E7007284F8 /* ChuckAPIEnvironment+Test.swift */,
+				DD71CC1720BCAED000BB5F47 /* TestArguments.swift */,
 			);
 			path = TestUtilities;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				DDDF80C320BB3FF3007284F8 /* RecentSearch.swift in Sources */,
 				DDDF80C520BB404C007284F8 /* RecentSearch+Persistence.swift in Sources */,
 				DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */,
+				DD71CC1820BCAED000BB5F47 /* TestArguments.swift in Sources */,
 				DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */,
 				DD71CC1620BCA82000BB5F47 /* ChuckAPIEnvironment+Test.swift in Sources */,
 				DDDF80D220BB51F2007284F8 /* RecentSearchViewModel.swift in Sources */,
