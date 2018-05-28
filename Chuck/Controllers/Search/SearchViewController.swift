@@ -151,14 +151,6 @@ final class SearchViewController: UIViewController {
         suggestionsController.view.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: Metrics.extraPadding).isActive = true
 
         suggestionsController.didMove(toParentViewController: self)
-
-        bindRecents()
-    }
-
-    private let disposeBag = DisposeBag()
-
-    private func bindRecents() {
-        syncEngine.fetchRecentSearches(with: 16).bind(to: suggestionsController.recents).disposed(by: disposeBag)
     }
 
     private func saveSearchToRecents(with term: String) {
@@ -169,19 +161,20 @@ final class SearchViewController: UIViewController {
         }
     }
 
-    private var randomDisposeBag = DisposeBag()
+    private var suggestionsDisposeBag = DisposeBag()
 
-    private func bindRandomCategories() {
-        randomDisposeBag = DisposeBag()
+    private func bindSearchSuggestions() {
+        suggestionsDisposeBag = DisposeBag()
 
-        syncEngine.fetchRandomCategories().bind(to: suggestionsController.categories).disposed(by: randomDisposeBag)
+        syncEngine.fetchRandomCategories().bind(to: suggestionsController.categories).disposed(by: suggestionsDisposeBag)
+        syncEngine.fetchRecentSearches(with: 16).bind(to: suggestionsController.recents).disposed(by: suggestionsDisposeBag)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         searchBar.text = nil
-        bindRandomCategories()
+        bindSearchSuggestions()
     }
 
     override func viewDidAppear(_ animated: Bool) {
