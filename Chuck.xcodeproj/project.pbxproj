@@ -64,6 +64,7 @@
 		DDDF80CC20BB483C007284F8 /* Collection+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80CB20BB483C007284F8 /* Collection+Shuffle.swift */; };
 		DDDF80CE20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80CD20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift */; };
 		DDDF80D020BB49E9007284F8 /* NSPersistentContainer+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80CF20BB49E9007284F8 /* NSPersistentContainer+Test.swift */; };
+		DDDF80D220BB51F2007284F8 /* RecentSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF80D120BB51F2007284F8 /* RecentSearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,7 @@
 		DDDF80CB20BB483C007284F8 /* Collection+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Shuffle.swift"; sourceTree = "<group>"; };
 		DDDF80CD20BB4970007284F8 /* ChuckCoreSyncEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCoreSyncEngineTests.swift; sourceTree = "<group>"; };
 		DDDF80CF20BB49E9007284F8 /* NSPersistentContainer+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+Test.swift"; sourceTree = "<group>"; };
+		DDDF80D120BB51F2007284F8 /* RecentSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +463,7 @@
 			children = (
 				DDDF80BB20BB30FD007284F8 /* JokeViewModel.swift */,
 				DDDF80C820BB445C007284F8 /* CategoryViewModel.swift */,
+				DDDF80D120BB51F2007284F8 /* RecentSearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				DDDF80C520BB404C007284F8 /* RecentSearch+Persistence.swift in Sources */,
 				DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */,
 				DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */,
+				DDDF80D220BB51F2007284F8 /* RecentSearchViewModel.swift in Sources */,
 				DDDF809520BB0AB7007284F8 /* Category.swift in Sources */,
 				DDDF80A120BB0EB2007284F8 /* ChuckCoreBundle.swift in Sources */,
 				DD1A57A620B4D7AB00F52C9E /* Joke.swift in Sources */,

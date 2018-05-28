@@ -120,4 +120,20 @@ public final class SyncEngine {
         }
     }
 
+    /// MARK: - Search history
+
+    public func registerSearchHistory(for term: String) throws {
+        try moc.rx.update(RecentSearch(term: term))
+    }
+
+    public func fetchRecentSearches(with count: Int) -> Observable<[RecentSearchViewModel]> {
+        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+
+        let results = moc.rx.entities(RecentSearch.self, sortDescriptors: [sortDescriptor])
+
+        return results.map { searches in
+            return searches.map(RecentSearchViewModel.init)
+        }
+    }
+
 }

@@ -90,4 +90,16 @@ class ChuckCoreSyncEngineTests: XCTestCase {
         XCTAssertEqual(joke?.id, "2cZa3wC8Ts-UI4TiFaFQVw")
     }
 
+    func testSearchHistoryStorage() throws {
+        try engine.registerSearchHistory(for: "Apple")
+        try engine.registerSearchHistory(for: "Microsoft")
+        try engine.registerSearchHistory(for: "Google")
+
+        let viewModels = try engine.fetchRecentSearches(with: 4).toBlocking().first()
+
+        XCTAssertNotNil(viewModels)
+        XCTAssertEqual(viewModels?.count, 3)
+        XCTAssertEqual(viewModels?.first?.term, "GOOGLE")
+    }
+
 }
