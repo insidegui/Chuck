@@ -4,4 +4,4 @@ script:
   - xcodebuild -version
   - carthage version
   - carthage bootstrap --platform iOS
-  - set -o pipefail && env "NSUnbufferedIO=YES" xcodebuild test -scheme Chuck -project Chuck.xcodeproj | xcpretty -f `xcpretty-travis-formatter`
+  - set -o pipefail && env "NSUnbufferedIO=YES" xcodebuild test -scheme Chuck -project Chuck.xcodeproj CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter`
