@@ -10,6 +10,8 @@ import UIKit
 
 class BadgeCollectionViewCell: UICollectionViewCell {
 
+    var action: ((String) -> Void)?
+
     var title: String? {
         get {
             return badgeView.title
@@ -24,6 +26,7 @@ class BadgeCollectionViewCell: UICollectionViewCell {
 
         badge.translatesAutoresizingMaskIntoConstraints = false
         badge.backgroundColor = .vibrantBadgeBackground
+        badge.addTarget(self, action: #selector(badgeTapped), for: .touchUpInside)
 
         return badge
     }()
@@ -50,6 +53,12 @@ class BadgeCollectionViewCell: UICollectionViewCell {
 
     override var intrinsicContentSize: CGSize {
         return badgeView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+    }
+
+    @objc private func badgeTapped() {
+        guard let title = title else { return }
+
+        action?(title)
     }
 
 }

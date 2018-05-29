@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BadgeView: UIView {
+class BadgeView: UIButton {
 
     enum Style: Int {
         case small
@@ -37,14 +37,14 @@ class BadgeView: UIView {
 
     var title: String? {
         get {
-            return titleLabel.text
+            return badgeTitleLabel.text
         }
         set {
-            titleLabel.text = newValue
+            badgeTitleLabel.text = newValue
         }
     }
 
-    private lazy var titleLabel: UILabel = {
+    private lazy var badgeTitleLabel: UILabel = {
         let label = UILabel()
 
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,10 +58,10 @@ class BadgeView: UIView {
     private func setup() {
         backgroundColor = .badgeBackground
 
-        addSubview(titleLabel)
-        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.padding/2).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.padding/2).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        addSubview(badgeTitleLabel)
+        badgeTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.padding/2).isActive = true
+        badgeTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.padding/2).isActive = true
+        badgeTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
         layer.cornerRadius = Metrics.badgeCornerRadius
     }
@@ -80,7 +80,7 @@ class BadgeView: UIView {
     }
 
     private func updateStyle() {
-        titleLabel.font = style == .regular ? .badge : .smallBadge
+        badgeTitleLabel.font = style == .regular ? .badge : .smallBadge
 
         invalidateIntrinsicContentSize()
     }

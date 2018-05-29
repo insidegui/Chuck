@@ -74,7 +74,6 @@ class BadgesCollectionViewController: UIViewController {
         let collection = SelfSizingCollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.delegate = self
         collection.setContentCompressionResistancePriority(.required, for: .vertical)
 
         return collection
@@ -101,20 +100,16 @@ class BadgesCollectionViewController: UIViewController {
             cell.title = title
             cell.uiTestingLabel = self?.uiTestingLabelForCells
 
+            cell.action = { title in
+                guard let `self` = self else { return }
+                self.delegate?.badgesCollectionViewController(self, didSelectItemWithTitle: title)
+            }
+
             return cell
         }, configureSupplementaryView: { _, _, _, _ in fatalError() })
 
         let sections = badgeTitles.asObservable().map({ [BadgeSectionModel(items: $0)] })
         sections.bind(to: collectionView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
-    }
-
-}
-
-extension BadgesCollectionViewController: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let title = badgeTitles.value[indexPath.item]
-        delegate?.badgesCollectionViewController(self, didSelectItemWithTitle: title)
     }
 
 }
