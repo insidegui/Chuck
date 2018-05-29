@@ -13,6 +13,7 @@ import RxSwift
 import RxCocoa
 import RxCoreData
 import RxBlocking
+import Reachability
 
 @testable import ChuckCore
 
@@ -21,8 +22,10 @@ class ChuckCoreSyncEngineTests: XCTestCase {
     var engine: SyncEngine!
 
     override func setUp() {
+        let reachability = Reachability(hostname: "localhost")!
+
         let client = ChuckAPIClient(environment: .test)
-        engine = SyncEngine(client: client, persistentContainer: .test)
+        engine = SyncEngine(client: client, persistentContainer: .test, reachability: reachability)
     }
 
     func testFetchingAllCategories() throws {

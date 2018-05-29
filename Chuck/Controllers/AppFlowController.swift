@@ -185,17 +185,27 @@ final class AppFlowController: UIViewController {
         listJokesController.isLoading.value = true
 
         syncEngine.syncSearchResults(with: term).subscribe { [weak self] event in
+            switch event {
+            case .completed:
+                self?.showEmptySearchResultsStateIfNeeded()
+            default:
+                break
+            }
             self?.listJokesController.isLoading.value = false
         }.disposed(by: listStateDisposeBag)
 
-        syncEngine.fetchSearchResults(with: term).do(onNext: { [weak self] results in
-            if results.count > 0 {
-                self?.hideEmptyState()
-            } else {
-                let message = self?.isOffline.value == true ? Messages.searchResultsEmtpyOffline : Messages.searchResultsEmtpy
-                self?.showEmptyState(with: message, actionTitle: "")
-            }
+        syncEngine.fetchSearchResults(with: term).do(onNext: { [weak self] _ in
+            self?.showEmptySearchResultsStateIfNeeded()
         }).bind(to: listJokesController.jokes).disposed(by: listStateDisposeBag)
+    }
+
+    private func showEmptySearchResultsStateIfNeeded() {
+        if listJokesController.jokes.value.count > 0 {
+            hideEmptyState()
+        } else {
+            let message = isOffline.value ? Messages.searchResultsEmtpyOffline : Messages.searchResultsEmtpy
+            showEmptyState(with: message, actionTitle: "")
+        }
     }
 
     // MARK: - Interaction
