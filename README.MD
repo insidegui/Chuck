@@ -18,9 +18,10 @@ Browse [Chuck Norris Facts](https://api.chucknorris.io/) on your iPhone.
 
 The app is written in Swift. It uses the following 3rd party libraries:
 
-- RxSwift
-- RxDataSources
-- RxCoreData
+- [RxSwift](https://github.com/ReactiveX/RxSwift)
+- [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources)
+- [RxCoreData](RxCoreData)
+- [Reachability.swift](https://github.com/ashleymills/Reachability.swift)
 
 ## Architecture
 
@@ -29,6 +30,8 @@ The app uses a mix of MVC and MVVM, view controller containment is used to avoid
 The app is also offline-first, which means every fact downloaded from the API gets stored locally (in CoreData) so the user can browse previously seen facts when offline.
 
 The model, networking, storage and view model layers are tested. There are also UI tests for the main interactions.
+
+All core functionality is implemented in a separate framework, ChuckCore, which should make it easy to port this app to other platforms or create extensions in the future.
 
 ## Building
 
