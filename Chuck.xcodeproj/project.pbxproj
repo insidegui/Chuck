@@ -20,7 +20,6 @@
 		DD2825E520B4BF3B00627F05 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825E420B4BF3B00627F05 /* AppFlowController.swift */; };
 		DD2825EA20B4BF3C00627F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2825E920B4BF3C00627F05 /* Assets.xcassets */; };
 		DD2825ED20B4BF3C00627F05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2825EB20B4BF3C00627F05 /* LaunchScreen.storyboard */; };
-		DD2825F820B4BF3C00627F05 /* ChuckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2825F720B4BF3C00627F05 /* ChuckTests.swift */; };
 		DD28260320B4BF3C00627F05 /* ChuckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28260220B4BF3C00627F05 /* ChuckUITests.swift */; };
 		DD28261520B4C03400627F05 /* ListJokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28261420B4C03400627F05 /* ListJokesViewController.swift */; };
 		DD28261820B4C05F00627F05 /* UIViewController+Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28261720B4C05F00627F05 /* UIViewController+Children.swift */; };
@@ -111,13 +110,6 @@
 			remoteGlobalIDString = DD1A578120B4D74C00F52C9E;
 			remoteInfo = ChuckCore;
 		};
-		DD2825F420B4BF3C00627F05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DD2825D720B4BF3B00627F05 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DD2825DE20B4BF3B00627F05;
-			remoteInfo = Chuck;
-		};
 		DD2825FF20B4BF3C00627F05 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DD2825D720B4BF3B00627F05 /* Project object */;
@@ -174,9 +166,6 @@
 		DD2825E920B4BF3C00627F05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD2825EC20B4BF3C00627F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD2825EE20B4BF3C00627F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD2825F320B4BF3C00627F05 /* ChuckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChuckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD2825F720B4BF3C00627F05 /* ChuckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckTests.swift; sourceTree = "<group>"; };
-		DD2825F920B4BF3C00627F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD2825FE20B4BF3C00627F05 /* ChuckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChuckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD28260220B4BF3C00627F05 /* ChuckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckUITests.swift; sourceTree = "<group>"; };
 		DD28260420B4BF3C00627F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -272,13 +261,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD2825F020B4BF3C00627F05 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DD2825FB20B4BF3C00627F05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,7 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				DD2825E120B4BF3B00627F05 /* Chuck */,
-				DD2825F620B4BF3C00627F05 /* ChuckTests */,
 				DD28260120B4BF3C00627F05 /* ChuckUITests */,
 				DD1A578320B4D74C00F52C9E /* ChuckCore */,
 				DD1A579020B4D74C00F52C9E /* ChuckCoreTests */,
@@ -378,7 +359,6 @@
 			isa = PBXGroup;
 			children = (
 				DD2825DF20B4BF3B00627F05 /* Chuck.app */,
-				DD2825F320B4BF3C00627F05 /* ChuckTests.xctest */,
 				DD2825FE20B4BF3C00627F05 /* ChuckUITests.xctest */,
 				DD1A578220B4D74C00F52C9E /* ChuckCore.framework */,
 				DD1A578A20B4D74C00F52C9E /* ChuckCoreTests.xctest */,
@@ -396,15 +376,6 @@
 				DD28261320B4BF7700627F05 /* Resources */,
 			);
 			path = Chuck;
-			sourceTree = "<group>";
-		};
-		DD2825F620B4BF3C00627F05 /* ChuckTests */ = {
-			isa = PBXGroup;
-			children = (
-				DD2825F720B4BF3C00627F05 /* ChuckTests.swift */,
-				DD2825F920B4BF3C00627F05 /* Info.plist */,
-			);
-			path = ChuckTests;
 			sourceTree = "<group>";
 		};
 		DD28260120B4BF3C00627F05 /* ChuckUITests */ = {
@@ -662,24 +633,6 @@
 			productReference = DD2825DF20B4BF3B00627F05 /* Chuck.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DD2825F220B4BF3C00627F05 /* ChuckTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DD28260A20B4BF3C00627F05 /* Build configuration list for PBXNativeTarget "ChuckTests" */;
-			buildPhases = (
-				DD2825EF20B4BF3C00627F05 /* Sources */,
-				DD2825F020B4BF3C00627F05 /* Frameworks */,
-				DD2825F120B4BF3C00627F05 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DD2825F520B4BF3C00627F05 /* PBXTargetDependency */,
-			);
-			name = ChuckTests;
-			productName = ChuckTests;
-			productReference = DD2825F320B4BF3C00627F05 /* ChuckTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		DD2825FD20B4BF3C00627F05 /* ChuckUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD28260D20B4BF3C00627F05 /* Build configuration list for PBXNativeTarget "ChuckUITests" */;
@@ -721,10 +674,6 @@
 					DD2825DE20B4BF3B00627F05 = {
 						CreatedOnToolsVersion = 9.3.1;
 					};
-					DD2825F220B4BF3C00627F05 = {
-						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = DD2825DE20B4BF3B00627F05;
-					};
 					DD2825FD20B4BF3C00627F05 = {
 						CreatedOnToolsVersion = 9.3.1;
 						TestTargetID = DD2825DE20B4BF3B00627F05;
@@ -745,7 +694,6 @@
 			projectRoot = "";
 			targets = (
 				DD2825DE20B4BF3B00627F05 /* Chuck */,
-				DD2825F220B4BF3C00627F05 /* ChuckTests */,
 				DD2825FD20B4BF3C00627F05 /* ChuckUITests */,
 				DD1A578120B4D74C00F52C9E /* ChuckCore */,
 				DD1A578920B4D74C00F52C9E /* ChuckCoreTests */,
@@ -779,13 +727,6 @@
 			files = (
 				DD2825ED20B4BF3C00627F05 /* LaunchScreen.storyboard in Resources */,
 				DD2825EA20B4BF3C00627F05 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DD2825F120B4BF3C00627F05 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,14 +859,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD2825EF20B4BF3C00627F05 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DD2825F820B4BF3C00627F05 /* ChuckTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DD2825FA20B4BF3C00627F05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -951,11 +884,6 @@
 			isa = PBXTargetDependency;
 			target = DD1A578120B4D74C00F52C9E /* ChuckCore */;
 			targetProxy = DD1A579520B4D74C00F52C9E /* PBXContainerItemProxy */;
-		};
-		DD2825F520B4BF3C00627F05 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DD2825DE20B4BF3B00627F05 /* Chuck */;
-			targetProxy = DD2825F420B4BF3C00627F05 /* PBXContainerItemProxy */;
 		};
 		DD28260020B4BF3C00627F05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1255,48 +1183,6 @@
 			};
 			name = Release;
 		};
-		DD28260B20B4BF3C00627F05 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C7439RJLG;
-				INFOPLIST_FILE = ChuckTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.ChuckTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chuck.app/Chuck";
-			};
-			name = Debug;
-		};
-		DD28260C20B4BF3C00627F05 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C7439RJLG;
-				INFOPLIST_FILE = ChuckTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.ChuckTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chuck.app/Chuck";
-			};
-			name = Release;
-		};
 		DD28260E20B4BF3C00627F05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1372,15 +1258,6 @@
 			buildConfigurations = (
 				DD28260820B4BF3C00627F05 /* Debug */,
 				DD28260920B4BF3C00627F05 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DD28260A20B4BF3C00627F05 /* Build configuration list for PBXNativeTarget "ChuckTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DD28260B20B4BF3C00627F05 /* Debug */,
-				DD28260C20B4BF3C00627F05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
