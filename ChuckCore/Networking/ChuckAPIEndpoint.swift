@@ -46,13 +46,9 @@ struct ChuckAPIEndpoint<R: Codable> {
     /// - Parameter term: the term to search for
     /// - Returns: An endpoint appropriate for searching with the specified term
     static func search(with term: String, environment: ChuckAPIEnvironment = .production) -> ChuckAPIEndpoint<SearchResponse> {
-        let sanitizedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
-        if sanitizedTerm == nil { os_log("Failed to sanitize search term %@", log: .default, type: .fault, term) }
-
         // If the sanitization fails, we use the original term. It think this is a good approach since
         // it will more than likely result in an HTTP request error that ends up bubbling up to the UI
-        let query = [URLQueryItem(name: "query", value: sanitizedTerm ?? term)]
+        let query = [URLQueryItem(name: "query", value: term)]
 
         return ChuckAPIEndpoint<SearchResponse>(path: "/jokes/search", query: query, environment: environment)
     }

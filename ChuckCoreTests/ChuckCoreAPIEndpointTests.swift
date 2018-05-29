@@ -34,7 +34,7 @@ class ChuckCoreAPIEndpointTests: XCTestCase {
 
     func testSearchWithSpecialCharactersRequestGeneration() {
         let request = ChuckAPIEndpoint<SearchResponse>.search(with: "Caffè Macs").request
-        XCTAssertEqual(request?.url?.absoluteString, "https://api.chucknorris.io/jokes/search?query=Caff%25C3%25A8%2520Macs")
+        XCTAssertEqual(request?.url?.absoluteString, "https://api.chucknorris.io/jokes/search?query=Caff%C3%A8%20Macs")
     }
 
 }
