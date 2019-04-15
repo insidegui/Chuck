@@ -14,6 +14,32 @@ import ChuckCore
 
 class TodayViewController: UIViewController, NCWidgetProviding {
 
+    enum State {
+        case loading
+        case content(JokeViewModel)
+    }
+
+    var state: State = .loading {
+        didSet {
+            updateUI()
+        }
+    }
+
+    private func updateUI() {
+        switch state {
+        case .loading:
+            spinner.startAnimating()
+            jokeLabel.isHidden = true
+        case .content(let joke):
+            jokeLabel.text = joke.body
+
+            spinner.stopAnimating()
+            jokeLabel.isHidden = false
+
+            updateSize()
+        }
+    }
+
     private let uiStack = ChuckUIStack()
 
     private lazy var effectView: UIVisualEffectView = {
@@ -50,15 +76,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(effectView)
-        effectView.contentView.addSubview(jokeLabel)
-
-        effectView.contentView.addSubview(spinner)
-
-        NSLayoutConstraint.activate([
-            spinner.centerYAnchor.constraint(equalTo: effectView.contentView.centerYAnchor),
-            spinner.centerXAnchor.constraint(equalTo: effectView.contentView.centerXAnchor)
-        ])
+        installViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,18 +90,27 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     private let bag = DisposeBag()
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        jokeLabel.isHidden = true
-        spinner.startAnimating()
+        state = .loading
 
         uiStack.syncEngine.randomJoke().observeOn(MainScheduler.instance).bind { [weak self] joke in
-            self?.spinner.stopAnimating()
-            self?.jokeLabel.isHidden = false
-            self?.jokeLabel.text = joke.body
-
-            self?.updateSize()
+            self?.state = .content(joke)
 
             completionHandler(NCUpdateResult.newData)
         }.disposed(by: bag)
+    }
+
+    // MARK: - Layout
+
+    private func installViews() {
+        view.addSubview(effectView)
+        effectView.contentView.addSubview(jokeLabel)
+
+        effectView.contentView.addSubview(spinner)
+
+        NSLayoutConstraint.activate([
+            spinner.centerYAnchor.constraint(equalTo: effectView.contentView.centerYAnchor),
+            spinner.centerXAnchor.constraint(equalTo: effectView.contentView.centerXAnchor)
+        ])
     }
 
     private func updateSize() {
