@@ -14,11 +14,11 @@ import RxSwift
 
 public extension Reactive where Base: NSManagedObjectContext {
 
-    public func create<E: Persistable>(_ type: E.Type = E.self) -> E.T {
+    func create<E: Persistable>(_ type: E.Type = E.self) -> E.T {
         return NSEntityDescription.insertNewObject(forEntityName: E.entityName, into: self.base) as! E.T
     }
 
-    public func get<P: Persistable>(_ persistable: P) throws -> P.T? {
+    func get<P: Persistable>(_ persistable: P) throws -> P.T? {
         let fetchRequest: NSFetchRequest<P.T> = NSFetchRequest(entityName: P.entityName)
         fetchRequest.predicate = NSPredicate(format: "%K = %@", P.primaryAttributeName, persistable.identity)
 
@@ -27,7 +27,7 @@ public extension Reactive where Base: NSManagedObjectContext {
         return result.finalResult?.first
     }
 
-    public func getOrCreateEntity<K: Persistable>(for persistable: K) -> K.T {
+    func getOrCreateEntity<K: Persistable>(for persistable: K) -> K.T {
         if let reusedEntity = try? self.get(persistable), reusedEntity != nil {
             return reusedEntity!
         } else {

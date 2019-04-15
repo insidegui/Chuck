@@ -1,4 +1,4 @@
-github "ReactiveX/RxSwift" "4.1.2"
+github "ReactiveX/RxSwift" "4.5.0"
 github "RxSwiftCommunity/RxCoreData" "0.4.0"
-github "RxSwiftCommunity/RxDataSources" "3.0.2"
-github "ashleymills/Reachability.swift" "v4.1.0"
+github "RxSwiftCommunity/RxDataSources" "3.1.0"
+github "ashleymills/Reachability.swift" "v4.3.1"
