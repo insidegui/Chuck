@@ -13,24 +13,30 @@ import Reachability
 public final class ChuckUIStack {
 
     public lazy var persistentContainer: NSPersistentContainer = {
-        guard let url = Bundle.chuckCore.url(forResource: "Model", withExtension: "momd") else {
-            fatalError("Failed to find Model.momd in ChuckCore")
-        }
-
-        guard let model = NSManagedObjectModel(contentsOf: url) else {
-            fatalError("Failed to load managed object model from ChuckCore")
-        }
-
-        let persistentContainer = NSPersistentContainer(name: "Model", managedObjectModel: model)
-
-        persistentContainer.loadPersistentStores(completionHandler: { _, error in
-            if let error = error {
-                fatalError("Error loading persistent stores: \(error.localizedDescription)")
-            }
-        })
-
-        return persistentContainer
+        return self.makePersistentContainer()
     }()
+
+    private func makePersistentContainer() -> NSPersistentContainer {
+        guard let baseURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: UserDefaults.chuckApplicationGroup) else {
+            fatalError("Failed to get container URL for app group identifier \(UserDefaults.chuckApplicationGroup)")
+        }
+
+        let storageURL = baseURL.appendingPathComponent("Storage.db")
+
+        do {
+            let container = try ChuckCorePersistentContainer(url: storageURL, readOnly: false)
+
+            container.loadPersistentStores(completionHandler: { _, error in
+                if let error = error {
+                    fatalError("Error loading persistent stores: \(error.localizedDescription)")
+                }
+            })
+
+            return container
+        } catch {
+            fatalError("Storage initialization error: \(error)")
+        }
+    }
 
     public lazy var reachability: Reachability = {
         guard let instance = Reachability(hostname: "api.chucknorris.io") else {

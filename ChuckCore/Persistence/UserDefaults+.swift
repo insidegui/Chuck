@@ -10,8 +10,10 @@ import Foundation
 
 public extension UserDefaults {
 
+    static let chuckApplicationGroup = "group.codes.rambo.Chuck"
+
     static var groupDefaults: UserDefaults {
-        return UserDefaults(suiteName: "group.codes.rambo.Chuck") ?? .standard
+        return UserDefaults(suiteName: UserDefaults.chuckApplicationGroup) ?? .standard
     }
 
 }

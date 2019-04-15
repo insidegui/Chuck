@@ -32,6 +32,7 @@
 		DD63259B22652169007825F8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DD63259C2265216B007825F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
 		DD63259E226521F9007825F8 /* ChuckUIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63259D226521F9007825F8 /* ChuckUIStack.swift */; };
+		DD6325A722652E07007825F8 /* ChuckCorePersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6325A622652E07007825F8 /* ChuckCorePersistentContainer.swift */; };
 		DD71CBEF20BB8C0500BB5F47 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBEE20BB8C0500BB5F47 /* Metrics.swift */; };
 		DD71CBF120BB8C5900BB5F47 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBF020BB8C5900BB5F47 /* Fonts.swift */; };
 		DD71CBF320BB8C8500BB5F47 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71CBF220BB8C8500BB5F47 /* Colors.swift */; };
@@ -213,6 +214,8 @@
 		DD63258E22652011007825F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		DD63259022652011007825F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD63259D226521F9007825F8 /* ChuckUIStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckUIStack.swift; sourceTree = "<group>"; };
+		DD6325A622652E07007825F8 /* ChuckCorePersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckCorePersistentContainer.swift; sourceTree = "<group>"; };
+		DD6325A822652F56007825F8 /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
 		DD71CBEE20BB8C0500BB5F47 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		DD71CBF020BB8C5900BB5F47 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DD71CBF220BB8C8500BB5F47 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -495,6 +498,7 @@
 		DD63258A22652011007825F8 /* TodayExtension */ = {
 			isa = PBXGroup;
 			children = (
+				DD6325A822652F56007825F8 /* TodayExtension.entitlements */,
 				DD63258B22652011007825F8 /* TodayViewController.swift */,
 				DD63258D22652011007825F8 /* MainInterface.storyboard */,
 				DD63259022652011007825F8 /* Info.plist */,
@@ -566,6 +570,7 @@
 				DDDF80C420BB404C007284F8 /* RecentSearch+Persistence.swift */,
 				DDDF80A620BB13E1007284F8 /* NSManagedObjectContext+.swift */,
 				DD63258122650DD2007825F8 /* UserDefaults+.swift */,
+				DD6325A622652E07007825F8 /* ChuckCorePersistentContainer.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -778,6 +783,11 @@
 					};
 					DD63258622652011007825F8 = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -903,6 +913,7 @@
 				DDDF80C320BB3FF3007284F8 /* RecentSearch.swift in Sources */,
 				DD71CC2120BCC67A00BB5F47 /* Reachability+Rx.swift in Sources */,
 				DDDF80C520BB404C007284F8 /* RecentSearch+Persistence.swift in Sources */,
+				DD6325A722652E07007825F8 /* ChuckCorePersistentContainer.swift in Sources */,
 				DDDF80B620BB2856007284F8 /* ChuckAPIEnvironment.swift in Sources */,
 				DD71CC1820BCAED000BB5F47 /* TestArguments.swift in Sources */,
 				DD1A57A920B4D82400F52C9E /* SearchResponse.swift in Sources */,
@@ -1372,6 +1383,7 @@
 		DD63259522652011007825F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7439RJLG;
@@ -1399,6 +1411,7 @@
 		DD63259622652011007825F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7439RJLG;
