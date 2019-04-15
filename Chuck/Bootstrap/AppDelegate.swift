@@ -24,48 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private lazy var persistentContainer: NSPersistentContainer = {
-        guard let url = Bundle.chuckCore.url(forResource: "Model", withExtension: "momd") else {
-            fatalError("Failed to find Model.momd in ChuckCore")
-        }
-
-        guard let model = NSManagedObjectModel(contentsOf: url) else {
-            fatalError("Failed to load managed object model from ChuckCore")
-        }
-
-        let persistentContainer = NSPersistentContainer(name: "Model", managedObjectModel: model)
-
-        persistentContainer.loadPersistentStores(completionHandler: { _, error in
-            if let error = error {
-                fatalError("Error loading persistent stores: \(error.localizedDescription)")
-            }
-        })
-
-        return persistentContainer
-    }()
-
-    private lazy var reachability: Reachability = {
-        guard let instance = Reachability(hostname: "api.chucknorris.io") else {
-            fatalError("Unable to instantiate reachability instance")
-        }
-
-        return instance
-    }()
-
-    private lazy var syncEngine: SyncEngine = {
-        let env: ChuckAPIEnvironment = TestArguments.isRunningUITests ? .test : .production
-
-        let client = ChuckAPIClient(environment: env)
-
-        return SyncEngine(
-            client: client,
-            persistentContainer: persistentContainer,
-            reachability: reachability
-        )
-    }()
+    private let uiStack = ChuckUIStack()
 
     private lazy var flowController: AppFlowController = {
-        return AppFlowController(syncEngine: syncEngine)
+        return AppFlowController(syncEngine: uiStack.syncEngine)
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -87,17 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func configureReachability() {
         do {
-            try reachability.startNotifier()
+            try uiStack.reachability.startNotifier()
         } catch {
             os_log("Failed to start reachability: %{public}@", log: self.log, type: .error, String(describing: error))
         }
 
         // Sets isOffline to true in the flow controller whenever reachability is not connected
-        reachability.rx.isReachable.map({ !$0 }).bind(to: flowController.isOffline).disposed(by: disposeBag)
+        uiStack.reachability.rx.isReachable.map({ !$0 }).bind(to: flowController.isOffline).disposed(by: disposeBag)
     }
 
     private func syncCategories() {
-        syncEngine.syncCategories().subscribeOn(MainScheduler.instance).subscribe(onError: { [weak self] error in
+        uiStack.syncEngine.syncCategories().subscribeOn(MainScheduler.instance).subscribe(onError: { [weak self] error in
             guard let `self` = self else { return }
 
             os_log(
@@ -124,11 +86,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Clear storage
         do {
-            try syncEngine.clearDatabase()
+            try uiStack.syncEngine.clearDatabase()
         } catch {
             fatalError(String(describing: error))
         }
     }
 
 }
-
