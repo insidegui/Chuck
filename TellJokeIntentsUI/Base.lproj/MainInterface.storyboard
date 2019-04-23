@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Intent View Controller-->
+        <scene sceneID="7MM-of-jgj">
+            <objects>
+                <viewController id="ObA-dk-sSI" customClass="IntentViewController" customModule="TellJokeIntentsUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUS-7O-gey">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NZA-hb-dSh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lalala Lalala Lalala Lalala Lalala Lalala Lalala Lalala Lalala Lalala " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVL-HA-JEe">
+                                            <rect key="frame" x="20" y="20" width="280" height="110"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bVL-HA-JEe" firstAttribute="top" secondItem="NZA-hb-dSh" secondAttribute="top" constant="20" symbolic="YES" id="B4j-tQ-WRS"/>
+                                        <constraint firstAttribute="trailing" secondItem="bVL-HA-JEe" secondAttribute="trailing" constant="20" symbolic="YES" id="Qh6-xq-nGT"/>
+                                        <constraint firstItem="bVL-HA-JEe" firstAttribute="leading" secondItem="NZA-hb-dSh" secondAttribute="leading" constant="20" symbolic="YES" id="SQT-ee-xmn"/>
+                                        <constraint firstAttribute="bottom" secondItem="bVL-HA-JEe" secondAttribute="bottom" constant="20" symbolic="YES" id="faU-pH-KmE"/>
+                                    </constraints>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tUS-7O-gey" firstAttribute="bottom" secondItem="zMn-AG-sqS" secondAttribute="bottom" id="TkP-mE-MzF"/>
+                            <constraint firstItem="tUS-7O-gey" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="e7j-NV-7kU"/>
+                            <constraint firstAttribute="trailing" secondItem="tUS-7O-gey" secondAttribute="trailing" id="h05-Q3-0HV"/>
+                            <constraint firstAttribute="top" secondItem="tUS-7O-gey" secondAttribute="top" id="qg8-CY-SyS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4PN-XC-lEE"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="150"/>
+                    <connections>
+                        <outlet property="label" destination="bVL-HA-JEe" id="56q-hD-6rm"/>
+                        <outlet property="vfxView" destination="tUS-7O-gey" id="UFm-Nw-fPX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
+        </scene>
+    </scenes>
+</document>

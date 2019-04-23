@@ -70,6 +70,15 @@
 		DDC4955A226F56CA00C54983 /* TellJokeIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49559226F56CA00C54983 /* TellJokeIntentHandler.swift */; };
 		DDC4955B226F571700C54983 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DDC4955C226F571A00C54983 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
+		DDC49563226F5B0600C54983 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC49562226F5B0600C54983 /* IntentsUI.framework */; };
+		DDC49566226F5B0600C54983 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49565226F5B0600C54983 /* IntentViewController.swift */; };
+		DDC49569226F5B0600C54983 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC49567226F5B0600C54983 /* MainInterface.storyboard */; };
+		DDC4956D226F5B0600C54983 /* TellJokeIntentsUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DDC49561226F5B0600C54983 /* TellJokeIntentsUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DDC49571226F5B3000C54983 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DDC49551226F562E00C54983 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		DDC49575226F5B6400C54983 /* ChuckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A578220B4D74C00F52C9E /* ChuckCore.framework */; };
+		DDC49576226F5DF000C54983 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD63258822652011007825F8 /* NotificationCenter.framework */; };
+		DDC49577226F5DF700C54983 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
+		DDC49578226F5DF900C54983 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
 		DDDF808720BB074E007284F8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808320BB074E007284F8 /* RxDataSources.framework */; };
 		DDDF808920BB074E007284F8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808520BB074E007284F8 /* RxCocoa.framework */; };
 		DDDF808A20BB074E007284F8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDF808620BB074E007284F8 /* RxSwift.framework */; };
@@ -164,6 +173,20 @@
 			remoteGlobalIDString = DD1A578120B4D74C00F52C9E;
 			remoteInfo = ChuckCore;
 		};
+		DDC4956B226F5B0600C54983 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD2825D720B4BF3B00627F05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDC49560226F5B0600C54983;
+			remoteInfo = TellJokeIntentsUI;
+		};
+		DDC49573226F5B6000C54983 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD2825D720B4BF3B00627F05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD1A578120B4D74C00F52C9E;
+			remoteInfo = ChuckCore;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -184,6 +207,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				DDC4956D226F5B0600C54983 /* TellJokeIntentsUI.appex in Embed App Extensions */,
 				DD63259322652011007825F8 /* TodayExtension.appex in Embed App Extensions */,
 				DDC4954D226F561D00C54983 /* ChuckIntents.appex in Embed App Extensions */,
 			);
@@ -266,6 +290,12 @@
 		DDC49551226F562E00C54983 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		DDC49555226F568900C54983 /* ChuckIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChuckIntents.entitlements; sourceTree = "<group>"; };
 		DDC49559226F56CA00C54983 /* TellJokeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellJokeIntentHandler.swift; sourceTree = "<group>"; };
+		DDC49561226F5B0600C54983 /* TellJokeIntentsUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TellJokeIntentsUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC49562226F5B0600C54983 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		DDC49565226F5B0600C54983 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		DDC49568226F5B0600C54983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DDC4956A226F5B0600C54983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC49572226F5B3F00C54983 /* TellJokeIntentsUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TellJokeIntentsUI.entitlements; sourceTree = "<group>"; };
 		DDDF808320BB074E007284F8 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		DDDF808420BB074E007284F8 /* RxCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCoreData.framework; path = Carthage/Build/iOS/RxCoreData.framework; sourceTree = "<group>"; };
 		DDDF808520BB074E007284F8 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -364,6 +394,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDC4955E226F5B0600C54983 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC49576226F5DF000C54983 /* NotificationCenter.framework in Frameworks */,
+				DDC49563226F5B0600C54983 /* IntentsUI.framework in Frameworks */,
+				DDC49578226F5DF900C54983 /* RxSwift.framework in Frameworks */,
+				DDC49577226F5DF700C54983 /* RxCocoa.framework in Frameworks */,
+				DDC49575226F5B6400C54983 /* ChuckCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -448,6 +490,7 @@
 				DD1A579020B4D74C00F52C9E /* ChuckCoreTests */,
 				DD63258A22652011007825F8 /* TodayExtension */,
 				DDC49547226F561D00C54983 /* ChuckIntents */,
+				DDC49564226F5B0600C54983 /* TellJokeIntentsUI */,
 				DD2825E020B4BF3B00627F05 /* Products */,
 				DDDF808220BB074D007284F8 /* Frameworks */,
 			);
@@ -462,6 +505,7 @@
 				DD1A578A20B4D74C00F52C9E /* ChuckCoreTests.xctest */,
 				DD63258722652011007825F8 /* TodayExtension.appex */,
 				DDC49546226F561D00C54983 /* ChuckIntents.appex */,
+				DDC49561226F5B0600C54983 /* TellJokeIntentsUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -600,6 +644,17 @@
 			path = ChuckIntents;
 			sourceTree = "<group>";
 		};
+		DDC49564226F5B0600C54983 /* TellJokeIntentsUI */ = {
+			isa = PBXGroup;
+			children = (
+				DDC49572226F5B3F00C54983 /* TellJokeIntentsUI.entitlements */,
+				DDC49565226F5B0600C54983 /* IntentViewController.swift */,
+				DDC49567226F5B0600C54983 /* MainInterface.storyboard */,
+				DDC4956A226F5B0600C54983 /* Info.plist */,
+			);
+			path = TellJokeIntentsUI;
+			sourceTree = "<group>";
+		};
 		DDDF808220BB074D007284F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +666,7 @@
 				DDDF808320BB074E007284F8 /* RxDataSources.framework */,
 				DDDF808620BB074E007284F8 /* RxSwift.framework */,
 				DD63258822652011007825F8 /* NotificationCenter.framework */,
+				DDC49562226F5B0600C54983 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -758,6 +814,7 @@
 				DD1A579620B4D74C00F52C9E /* PBXTargetDependency */,
 				DD63259222652011007825F8 /* PBXTargetDependency */,
 				DDC4954C226F561D00C54983 /* PBXTargetDependency */,
+				DDC4956C226F5B0600C54983 /* PBXTargetDependency */,
 			);
 			name = Chuck;
 			productName = Chuck;
@@ -820,6 +877,24 @@
 			productReference = DDC49546226F561D00C54983 /* ChuckIntents.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		DDC49560226F5B0600C54983 /* TellJokeIntentsUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDC4956E226F5B0600C54983 /* Build configuration list for PBXNativeTarget "TellJokeIntentsUI" */;
+			buildPhases = (
+				DDC4955D226F5B0600C54983 /* Sources */,
+				DDC4955E226F5B0600C54983 /* Frameworks */,
+				DDC4955F226F5B0600C54983 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDC49574226F5B6000C54983 /* PBXTargetDependency */,
+			);
+			name = TellJokeIntentsUI;
+			productName = TellJokeIntentsUI;
+			productReference = DDC49561226F5B0600C54983 /* TellJokeIntentsUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -870,6 +945,14 @@
 							};
 						};
 					};
+					DDC49560226F5B0600C54983 = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = DD2825DA20B4BF3B00627F05 /* Build configuration list for PBXProject "Chuck" */;
@@ -888,6 +971,7 @@
 				DD2825DE20B4BF3B00627F05 /* Chuck */,
 				DD63258622652011007825F8 /* TodayExtension */,
 				DDC49545226F561D00C54983 /* ChuckIntents */,
+				DDC49560226F5B0600C54983 /* TellJokeIntentsUI */,
 				DD1A578120B4D74C00F52C9E /* ChuckCore */,
 				DD2825FD20B4BF3C00627F05 /* ChuckUITests */,
 				DD1A578920B4D74C00F52C9E /* ChuckCoreTests */,
@@ -943,6 +1027,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC4955F226F5B0600C54983 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC49569226F5B0600C54983 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,6 +1191,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDC4955D226F5B0600C54983 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC49571226F5B3000C54983 /* Intents.intentdefinition in Sources */,
+				DDC49566226F5B0600C54983 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1142,6 +1243,16 @@
 			target = DD1A578120B4D74C00F52C9E /* ChuckCore */;
 			targetProxy = DDC49556226F56AD00C54983 /* PBXContainerItemProxy */;
 		};
+		DDC4956C226F5B0600C54983 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDC49560226F5B0600C54983 /* TellJokeIntentsUI */;
+			targetProxy = DDC4956B226F5B0600C54983 /* PBXContainerItemProxy */;
+		};
+		DDC49574226F5B6000C54983 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD1A578120B4D74C00F52C9E /* ChuckCore */;
+			targetProxy = DDC49573226F5B6000C54983 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1157,6 +1268,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				DD63258E22652011007825F8 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		DDC49567226F5B0600C54983 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDC49568226F5B0600C54983 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1601,6 +1720,61 @@
 			};
 			name = Release;
 		};
+		DDC4956F226F5B0600C54983 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TellJokeIntentsUI/TellJokeIntentsUI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = TellJokeIntentsUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.Chuck.TellJokeIntentsUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDC49570226F5B0600C54983 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TellJokeIntentsUI/TellJokeIntentsUI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = TellJokeIntentsUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.Chuck.TellJokeIntentsUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1663,6 +1837,15 @@
 			buildConfigurations = (
 				DDC4954E226F561D00C54983 /* Debug */,
 				DDC4954F226F561D00C54983 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDC4956E226F5B0600C54983 /* Build configuration list for PBXNativeTarget "TellJokeIntentsUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDC4956F226F5B0600C54983 /* Debug */,
+				DDC49570226F5B0600C54983 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
