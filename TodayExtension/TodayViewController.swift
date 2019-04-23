@@ -14,31 +14,7 @@ import ChuckCore
 
 class TodayViewController: UIViewController, NCWidgetProviding {
 
-    enum State {
-        case loading
-        case content(JokeViewModel)
-    }
-
-    var state: State = .loading {
-        didSet {
-            updateUI()
-        }
-    }
-
-    private func updateUI() {
-        switch state {
-        case .loading:
-            spinner.startAnimating()
-            jokeLabel.isHidden = true
-        case .content(let joke):
-            jokeLabel.text = joke.body
-
-            spinner.stopAnimating()
-            jokeLabel.isHidden = false
-
-            updateSize()
-        }
-    }
+    // 1. UI
 
     private let uiStack = ChuckUIStack()
 
@@ -87,18 +63,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         updateSize()
     }
 
-    private let bag = DisposeBag()
-        
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        state = .loading
-
-        uiStack.syncEngine.randomJoke().observeOn(MainScheduler.instance).bind { [weak self] joke in
-            self?.state = .content(joke)
-
-            completionHandler(NCUpdateResult.newData)
-        }.disposed(by: bag)
-    }
-
     // MARK: - Layout
 
     private func installViews() {
@@ -113,6 +77,20 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         ])
     }
 
+    // 2. UPDATES
+
+    private let bag = DisposeBag()
+
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        state = .loading
+
+        uiStack.syncEngine.randomJoke().observeOn(MainScheduler.instance).bind { [weak self] joke in
+            self?.state = .content(joke)
+
+            completionHandler(NCUpdateResult.newData)
+        }.disposed(by: bag)
+    }
+
     private func updateSize() {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(doUpdateSize), object: nil)
         perform(#selector(doUpdateSize), with: nil, afterDelay: 0)
@@ -120,6 +98,34 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     @objc private func doUpdateSize() {
         preferredContentSize = jokeLabel.intrinsicContentSize
+    }
+
+    // 3. STATE
+
+    enum State {
+        case loading
+        case content(JokeViewModel)
+    }
+
+    var state: State = .loading {
+        didSet {
+            updateUI()
+        }
+    }
+
+    private func updateUI() {
+        switch state {
+        case .loading:
+            spinner.startAnimating()
+            jokeLabel.isHidden = true
+        case .content(let joke):
+            jokeLabel.text = joke.body
+
+            spinner.stopAnimating()
+            jokeLabel.isHidden = false
+
+            updateSize()
+        }
     }
     
 }
