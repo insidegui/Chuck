@@ -13,6 +13,8 @@ import RxSwift
 import Reachability
 import os.log
 
+import Intents
+
 extension Notification.Name {
     static let ChuckErrorDidOccur = Notification.Name("ChuckErrorDidOccur")
 }
@@ -41,6 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         syncCategories()
+
+        if #available(iOS 12.0, *) {
+            registerShortcutSuggestions()
+        }
 
         return true
     }
@@ -90,6 +96,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             fatalError(String(describing: error))
         }
+    }
+
+    @available(iOS 12.0, *)
+    private func registerShortcutSuggestions() {
+        let intent = TellJokeIntent()
+        intent.suggestedInvocationPhrase = "Tell me a Chuck joke"
+
+        guard let shortcut = INShortcut(intent: intent) else {
+            os_log("Failed to register shortcut suggestions!", log: self.log, type: .fault)
+            return
+        }
+
+        INVoiceShortcutCenter.shared.setShortcutSuggestions([shortcut])
+
+        os_log("Registered shortcut suggestions", log: self.log, type: .default)
     }
 
 }
